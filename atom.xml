@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-04-26T16:22:57.520Z</updated>
+  <updated>2020-04-29T13:58:59.717Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,21 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CTF文件上传绕过姿势</title>
+    <link href="http://yoursite.com/2020/04/29/CTF%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87%E5%A7%BF%E5%8A%BF/"/>
+    <id>http://yoursite.com/2020/04/29/CTF%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87%E5%A7%BF%E5%8A%BF/</id>
+    <published>2020-04-29T13:58:56.000Z</published>
+    <updated>2020-04-29T13:58:59.717Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>常见的加密类型</title>
@@ -83,7 +98,7 @@
     <link href="http://yoursite.com/2020/04/26/Hexo%E9%85%8D%E7%BD%AE%E7%9B%AE%E5%BD%95/"/>
     <id>http://yoursite.com/2020/04/26/Hexo%E9%85%8D%E7%BD%AE%E7%9B%AE%E5%BD%95/</id>
     <published>2020-04-26T14:00:55.000Z</published>
-    <updated>2020-04-26T14:16:24.698Z</updated>
+    <updated>2020-04-29T14:03:51.794Z</updated>
     
     <content type="html"><![CDATA[<div class="toc"><!-- toc --><ul><li><a href="#mu-lu">目录</a></li><li><a href="#an-zhuang">安装</a></li><li><a href="#pei-zhi">配置</a><ul><li><a href="#1-1-pei-zhi">1.1配置</a></li></ul></li><li><a href="#shi-yong">使用</a></li><li><a href="#xiao-guo">效果</a></li></ul><!-- tocstop --></div><h2><span id="mu-lu">目录</span><a href="#mu-lu" class="header-anchor"></a></h2><p>Hexo的扩展功能很多，目录配置也很简单。</p><h2><span id="an-zhuang">安装</span><a href="#an-zhuang" class="header-anchor"></a></h2><p>首先安装hexo-toc插件，代码如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-toc --save</span><br></pre></td></tr></table></figure><h2><span id="pei-zhi">配置</span><a href="#pei-zhi" class="header-anchor"></a></h2><p>然后配置站点文件_config.yml 代码如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">toc:</span><br><span class="line">  maxdepth: 3</span><br><span class="line">  class: toc</span><br><span class="line">  slugify: transliteration</span><br><span class="line">  decodeEntities: false</span><br><span class="line">  anchor:</span><br><span class="line">    position: after</span><br><span class="line">    symbol: &#39;&#39;</span><br><span class="line">    style: header-anchor</span><br></pre></td></tr></table></figure><h3><span id="1-1-pei-zhi">1.1配置</span><a href="#1-1-pei-zhi" class="header-anchor"></a></h3><p>可以修改maxdepth参数1-6，设置目录级</p><h2><span id="shi-yong">使用</span><a href="#shi-yong" class="header-anchor"></a></h2><p>在文章开头加入toc的占位符：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- toc --&gt;</span><br></pre></td></tr></table></figure><h2><span id="xiao-guo">效果</span><a href="#xiao-guo" class="header-anchor"></a></h2><p>可以在相应位置显示目录导航，效果文章开头。</p>]]></content>
     
