@@ -274,7 +274,7 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-c" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-CTF中Web题目的常见题型及解题姿势" class="article article-type-post" itemscope itemprop="blogPost">
     
         <h1 class="article-title">CTF中Web题目的常见题型及解题姿势</h1>
     
@@ -286,7 +286,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-04-30 23:57:54'>2020-04-30 23:55</time>
+        创建时间:<time class="date" title='更新时间: 2020-05-01 00:04:01'>2020-04-30 23:55</time>
         
     </div>
     <div class="article-meta">
@@ -324,7 +324,42 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2><span id="ji-chu-zhi-shi-lei-ti-mu">基础知识类题目</span><a href="#ji-chu-zhi-shi-lei-ti-mu" class="header-anchor"></a></h2><p>考察基本的查看网页源代码、HTTP请求、修改页面元素等。</p>
+        <div class="toc">
+
+<!-- toc -->
+
+<ul>
+<li><a href="#ji-chu-zhi-shi-lei-ti-mu">基础知识类题目</a></li>
+<li><a href="#cha-kan-wang-ye-yuan-dai-ma">查看网页源代码</a></li>
+<li><a href="#fa-song-http-qing-qiu">发送HTTP请求</a></li>
+<li><a href="#bu-chang-jian-lei-xing-de-qing-qiu-fa-song">不常见类型的请求发送</a></li>
+<li><a href="#http-tou-xiang-guan-de-ti-mu">HTTP头相关的题目</a></li>
+<li><a href="#cha-kan-xiang-ying-tou">查看相应头</a></li>
+<li><a href="#xiu-gai-qing-qiu-tou-wei-zao-cookie">修改请求头、伪造Cookie</a></li>
+<li><a href="#git-yuan-ma-xie-lu">Git源码泄露</a></li>
+<li><a href="#python-pa-chong-xin-xi-chu-li">python爬虫信息处理</a></li>
+<li><a href="#php-dai-ma-shen-ji">PHP代码审计</a></li>
+<li><a href="#php-ruo-lei-xing-hash-bi-jiao-que-xian">PHP弱类型hash比较缺陷</a></li>
+<li><a href="#shu-zu-fan-hui-null-rao-guo">数组返回NULL绕过</a></li>
+<li><a href="#zheng-ze-biao-da-shi-xiang-guan">正则表达式相关</a></li>
+<li><a href="#ming-ling-zhi-xing-lou-dong">命令执行漏洞</a></li>
+<li><a href="#xss-ti-mu">XSS题目</a></li>
+<li><a href="#rao-guo-waf">绕过waf</a></li>
+<li><a href="#chang-du-xian-zhi">长度限制</a></li>
+<li><a href="#shuang-xie">双写</a></li>
+<li><a href="#deng-jie-ti-dai">等价替代</a></li>
+<li><a href="#url-bian-ma-rao-guo">URL编码绕过</a></li>
+<li><a href="#linux-ming-ling-shi-yong-fan-xie-gang-rao-guo">Linux命令使用反斜杠绕过</a></li>
+<li><a href="#url-er-ci-jie-ma-rao-guo">URL二次解码绕过</a></li>
+<li><a href="#shu-zu-rao-guo">数组绕过</a></li>
+<li><a href="#sql-zhu-ru">SQL注入</a></li>
+<li><a href="#shi-yong-sqlmap">使用sqlmap</a></li>
+</ul>
+<!-- tocstop -->
+
+</div>
+
+<h2><span id="ji-chu-zhi-shi-lei-ti-mu">基础知识类题目</span><a href="#ji-chu-zhi-shi-lei-ti-mu" class="header-anchor"></a></h2><p>考察基本的查看网页源代码、HTTP请求、修改页面元素等。</p>
 <p>这些题很简单，比较难的比赛应该不会单独出，就算有因该也是Web的签到题。</p>
 <p>实际做题的时候基本都是和其他更复杂的知识结合起来出现。</p>
 <p>姿势：恶补基础知识就行</p>
@@ -427,7 +462,7 @@
 
 <p><a href="javascript:void(0);"><img src="https://common.cnblogs.com/images/copycode.gif" alt="复制代码"></a></p>
 <p>最主要的区别就是过滤了$和_，也就是说无法使用变量符号$了。<br>这时候可以考虑采用通配符绕过。<br>通配符有点像正则表达式，有自己的匹配规则，看这张图：</p>
-<p><img src="https://img2018.cnblogs.com/i-beta/1456070/202002/1456070-20200211140229075-578435663.png" alt="img"></p>
+<p><img src="http://q9egne78c.bkt.clouddn.com/blog/20200501/J28x2Wmxqnal.bmp" alt></p>
 <p>所以构造一下通配符就是/???/??? /<em>。<br>因为过滤了变量符号，没法通过上面那种方法来执行了。但是，可以通过闭合PHP标记来执行，也就是：?&gt;&lt;?=/???/??? /</em>?&gt;（/bin/cat /<em>）。<br>所以本题的payload为：?code=?&gt;&lt;?=/???/??? /</em>?&gt;<br>具体解法可以参照此篇文章的前两道题目：<a href="https://www.jianshu.com/p/ecc2414ec110" target="_blank" rel="noopener">https://www.jianshu.com/p/ecc2414ec110</a></p>
 <h2><span id="ming-ling-zhi-xing-lou-dong">命令执行漏洞</span><a href="#ming-ling-zhi-xing-lou-dong" class="header-anchor"></a></h2><p> assert()函数引起的命令执行</p>
 <p>ssert函数的参数为字符串时，会将字符串当做PHP命令来执行。<br>例如：assert(‘phpinfo()’)相当于执行<?php phpinfo() ?><br>以一道题目为例：<br>本题目中题目文件夹下放置了一个隐藏的flag文件。</p>
@@ -457,7 +492,7 @@
 
 
 <h2><span id="shuang-xie">双写</span><a href="#shuang-xie" class="header-anchor"></a></h2><p>双写可以绕过对输入内容过滤的单次判断，在XSS、SQL注入和PHP代码审计的题目中比较常见。<br>双写顾名思义就是将被过滤的关键字符写两遍，比如，如果要添加XSS  Payload，又需要插入<script>标签，就可以构造如下的Payload：<scr<script>ipt>来绕过对<script>标签的单次过滤限制。<br>这样的方法不仅对XSS有用，也可以用于代码审计和SQL注入。<br>HGAME2019有一道XSS题目就是过滤了<script>，可以用双写绕过。</p>
-<h2 id="等价替代"><a href="#等价替代" class="headerlink" title="等价替代#"></a>等价替代<a href="https://www.cnblogs.com/daiorz/p/12294963.html#2679272405" target="_blank" rel="noopener">#</a></h2><p>就是不用被过滤的字符，而使用没有被过滤却会产生相同效果的字符。</p>
+<h2 id="等价替代"><a href="#等价替代" class="headerlink" title="等价替代"></a>等价替代</h2><p>就是不用被过滤的字符，而使用没有被过滤却会产生相同效果的字符。</p>
 <p>比如，如果SQL注入题目中过滤了空格，可以用/**/绕过对空格的限制；XSS题目如果过滤了<script>标签，可以使用其他类型的payload；如果需要使用cat命令却被过滤，可以使用tac、more、less命令来替代等。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">实验吧 简单的SQL注入：http:&#x2F;&#x2F;www.shiyanbar.com&#x2F;ctf&#x2F;1875</span><br></pre></td></tr></table></figure>
 
@@ -465,21 +500,22 @@
 
 
 
-<h2 id="URL编码绕过"><a href="#URL编码绕过" class="headerlink" title="URL编码绕过#"></a>URL编码绕过<a href="https://www.cnblogs.com/daiorz/p/12294963.html#960212954" target="_blank" rel="noopener">#</a></h2><p>如果过滤了某个必须要用的字符串，输入的内容是以GET方式获取的（也就是直接在地址栏中输入），可以采用url编码绕过的方式。比如，过滤了 cat，可以使用 c%61t来绕过。</p>
-<h2 id="Linux命令使用反斜杠绕过"><a href="#Linux命令使用反斜杠绕过" class="headerlink" title="Linux命令使用反斜杠绕过#"></a>Linux命令使用反斜杠绕过<a href="https://www.cnblogs.com/daiorz/p/12294963.html#771398634" target="_blank" rel="noopener">#</a></h2><p>在Linux下，命令中加入反斜杠与原命令完全等价。例如，cat与 ca\t两条命令等价，效果完全相同。<br>可以利用这个特性来进行一些绕过操作（当然，这个仅限于命令执行漏洞）。</p>
-<h2 id="URL二次解码绕过"><a href="#URL二次解码绕过" class="headerlink" title="URL二次解码绕过#"></a>URL二次解码绕过<a href="https://www.cnblogs.com/daiorz/p/12294963.html#3219991712" target="_blank" rel="noopener">#</a></h2><p>这个类型本来应该放在代码审计里面，但是既然是一种绕过过滤的姿势，就写在这里了。<br>如果源码中出现了urldecode()函数，可以利用url二次解码来绕过。<br>以下是一些常用的HTML URL编码：<br><img src="https://img2018.cnblogs.com/i-beta/1456070/202002/1456070-20200211141639858-337262889.png" alt="img"></p>
+<h2 id="URL编码绕过"><a href="#URL编码绕过" class="headerlink" title="URL编码绕过"></a>URL编码绕过</h2><p>如果过滤了某个必须要用的字符串，输入的内容是以GET方式获取的（也就是直接在地址栏中输入），可以采用url编码绕过的方式。比如，过滤了 cat，可以使用 c%61t来绕过。</p>
+<h2 id="Linux命令使用反斜杠绕过"><a href="#Linux命令使用反斜杠绕过" class="headerlink" title="Linux命令使用反斜杠绕过"></a>Linux命令使用反斜杠绕过</h2><p>在Linux下，命令中加入反斜杠与原命令完全等价。例如，cat与 ca\t两条命令等价，效果完全相同。<br>可以利用这个特性来进行一些绕过操作（当然，这个仅限于命令执行漏洞）。</p>
+<h2 id="URL二次解码绕过"><a href="#URL二次解码绕过" class="headerlink" title="URL二次解码绕过"></a>URL二次解码绕过</h2><p>这个类型本来应该放在代码审计里面，但是既然是一种绕过过滤的姿势，就写在这里了。<br>如果源码中出现了urldecode()函数，可以利用url二次解码来绕过。<br>以下是一些常用的HTML URL编码：<br><img src="http://q9egne78c.bkt.clouddn.com/blog/20200501/47qjmfx9KN8u.bmp" alt=""></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Bugku urldecode二次编码绕过：http:&#x2F;&#x2F;123.206.87.240:9009&#x2F;10.php</span><br></pre></td></tr></table></figure>
 
 
 
+<h2 id="数组绕过"><a href="#数组绕过" class="headerlink" title="数组绕过"></a>数组绕过</h2><p>详见PHP代码审计的“数组返回NULL”绕过。<br>数组绕过的应用很广，很多题目都可以用数组绕过。</p>
+<h2 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h2><p>SQL注入是一种灵活而复杂的攻击方式，归根结底还是考察对SQL语言的了解和根据输入不同数据网页的反应对后台语句的判断，当然也有sqlmap这样的自动化工具可以使用。<br>姿势：如果不用sqlmap或者是用不了，就一定要把SQL语言弄明白，sqlmap这样的自动化工具也可以使用。</p>
+<h2 id="使用sqlmap"><a href="#使用sqlmap" class="headerlink" title="使用sqlmap"></a>使用sqlmap</h2><p>sqlmap的应用范围还不大明确，我都是如果sqlmap没法注入就手工注入。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap教程：https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;4509bdf5e3d0</span><br></pre></td></tr></table></figure>
 
 
 
-
-<h2 id="数组绕过"><a href="#数组绕过" class="headerlink" title="数组绕过#"></a>数组绕过<a href="https://www.cnblogs.com/daiorz/p/12294963.html#94124012" target="_blank" rel="noopener">#</a></h2><p>详见PHP代码审计的“数组返回NULL”绕过。<br>数组绕过的应用很广，很多题目都可以用数组绕过。</p>
-<h2 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入#"></a>SQL注入<a href="https://www.cnblogs.com/daiorz/p/12294963.html#3009050572" target="_blank" rel="noopener">#</a></h2><p>SQL注入是一种灵活而复杂的攻击方式，归根结底还是考察对SQL语言的了解和根据输入不同数据网页的反应对后台语句的判断，当然也有sqlmap这样的自动化工具可以使用。<br>姿势：如果不用sqlmap或者是用不了，就一定要把SQL语言弄明白，sqlmap这样的自动化工具也可以使用。</p>
-<h2 id="使用sqlmap"><a href="#使用sqlmap" class="headerlink" title="使用sqlmap#"></a>使用sqlmap<a href="https://www.cnblogs.com/daiorz/p/12294963.html#64463219" target="_blank" rel="noopener">#</a></h2><p>sqlmap的应用范围还不大明确，我都是如果sqlmap没法注入就手工注入。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap教程：https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;4509bdf5e3d0</span><br></pre></td></tr></table></figure></script></p>
+<p>转载：<u><a href="https://www.cnblogs.com/daiorz/p/12294963.html" target="_blank" rel="noopener">https://www.cnblogs.com/daiorz/p/12294963.html</a></u></p>
+</script></p>
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1012482327@qq.com </span>
     </div>
@@ -496,8 +532,8 @@
     
     <p><span class="copy-title">本文作者:</span><a  title="亖 玖">亖 玖</a></p>
     <p><span class="copy-title">发布时间:</span>2020-04-30, 23:55:54</p>
-    <p><span class="copy-title">最后更新:</span>2020-04-30, 23:57:54</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/04/30/c/" title="CTF中Web题目的常见题型及解题姿势">http://yoursite.com/2020/04/30/c/</a>
+    <p><span class="copy-title">最后更新:</span>2020-05-01, 00:04:01</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/04/30/CTF%E4%B8%ADWeb%E9%A2%98%E7%9B%AE%E7%9A%84%E5%B8%B8%E8%A7%81%E9%A2%98%E5%9E%8B%E5%8F%8A%E8%A7%A3%E9%A2%98%E5%A7%BF%E5%8A%BF/" title="CTF中Web题目的常见题型及解题姿势">http://yoursite.com/2020/04/30/CTF%E4%B8%ADWeb%E9%A2%98%E7%9B%AE%E7%9A%84%E5%B8%B8%E8%A7%81%E9%A2%98%E5%9E%8B%E5%8F%8A%E8%A7%A3%E9%A2%98%E5%A7%BF%E5%8A%BF/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
