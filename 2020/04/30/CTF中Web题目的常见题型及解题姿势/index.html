@@ -278,7 +278,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-05-01 00:13:56'>2020-04-30 23:55</time>
+        创建时间:<time class="date" title='更新时间: 2020-05-06 12:59:55'>2020-04-30 23:55</time>
         
     </div>
     <div class="article-meta">
@@ -356,10 +356,7 @@
 <p>实际做题的时候基本都是和其他更复杂的知识结合起来出现。</p>
 <p>姿势：恶补基础知识就行</p>
 <h2><span id="cha-kan-wang-ye-yuan-dai-ma">查看网页源代码</span><a href="#cha-kan-wang-ye-yuan-dai-ma" class="header-anchor"></a></h2><p>按F12就都看到了，flag一般都在注释里，有时候注释里也会有一条hint或者是对解题有用的信息。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">BugKu web2:http:&#x2F;&#x2F;123.222.333.12:8002&#x2F;web2</span><br><span class="line">BugKu web3:http:&#x2F;&#x2F;123.222.333.12:8002&#x2F;web3</span><br></pre></td></tr></table></figure>
-
-
-
+<p>BugKu web2:<a href="http://123.222.333.12:8002/web2">http://123.222.333.12:8002/web2</a><br>BugKu web3:<a href="http://123.222.333.12:8002/web3">http://123.222.333.12:8002/web3</a></p>
 <h2><span id="fa-song-http-qing-qiu">发送HTTP请求</span><a href="#fa-song-http-qing-qiu" class="header-anchor"></a></h2><p>可以用hackbar，有的也可以写脚本。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BugKu web2基础$_GET:http:&#x2F;&#x2F;123.222.333.12:8002&#x2F;get&#x2F;</span><br><span class="line">BugKu web2基础$_POST:http:&#x2F;&#x2F;123.222.333.12:8002&#x2F;post&#x2F;</span><br><span class="line">BugKu 点击一百万次:http:&#x2F;&#x2F;123.222.333.12:8002&#x2F;test&#x2F;</span><br></pre></td></tr></table></figure>
 
@@ -380,12 +377,7 @@
 <h2><span id="cha-kan-xiang-ying-tou">查看相应头</span><a href="#cha-kan-xiang-ying-tou" class="header-anchor"></a></h2><p>有时候响应头里会有hint或者题目关键信息，也有时候会直接把flag放在响应头里给，但是直接查看响应头拿flag的题目不多，</p>
 <p>因为太简单了。</p>
 <p>知识查看的话，可以不用抓包，用F12的“网络”标签就可以解决了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">BugKu 头等舱:http:&#x2F;&#x2F;123.222.333.12:8002&#x2F;hd.php</span><br></pre></td></tr></table></figure>
-
-
-
-
-
+<p>BugKu 头等舱:<a href="http://123.222.333.12:8002/hd.php">http://123.222.333.12:8002/hd.php</a></p>
 <h2><span id="xiu-gai-qing-qiu-tou-wei-zao-cookie">修改请求头、伪造Cookie</span><a href="#xiu-gai-qing-qiu-tou-wei-zao-cookie" class="header-anchor"></a></h2><p>常见的有set-cookie、XFF和Referer,总之考法很灵活，做法比较固定，知道一些常见的请求头再根据题目随机应变就没问题了。</p>
 <p>有些题目还需要伪造cookie，根据题目要求做就行了。</p>
 <p>可以用Burp抓包，也可以直接在浏览器的F12“网络”标签里改。</p>
@@ -461,41 +453,22 @@
 
 
 <h2><span id="xss-ti-mu">XSS题目</span><a href="#xss-ti-mu" class="header-anchor"></a></h2><p>这类题目会涉及到三种XSS类型，具体类型要根据题目来判断。一般都是向后台发送一个带有XSS Payload的文本，在返回的Cookie中含有flag，解法是在XSS Payload。<br>这类题目一般都会带有过滤和各种限制，需要了解一些常用的绕过方法。<br>姿势：XSS归根结底还是JavaScript，JavaScript的威力有多大，XSS的威力就有多大。要知道一些常用的XSS Payload，还要把三类XSS的原理弄明白。做题时需要用到XSS平台，网上有公用的，也可以自己在VPS上搭一个。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">JavisOJ babyxss：http:&#x2F;&#x2F;web.jarvisoj.com:32800&#x2F;</span><br></pre></td></tr></table></figure>
-
-
-
+<p>JavisOJ babyxss：<a href="http://web.jarvisoj.com:32800/" target="_blank" rel="noopener">http://web.jarvisoj.com:32800/</a></p>
 <h2><span id="rao-guo-waf">绕过waf</span><a href="#rao-guo-waf" class="header-anchor"></a></h2><p>其实绝大多数比较难的题目多多少都会对输入有过滤，毕竟在现实的网络中肯定是会对输入进行限制的，但是这里还是把过滤单独列出来了。<br>姿势：多掌握一些不同的绕过方法。</p>
 <h2><span id="chang-du-xian-zhi">长度限制</span><a href="#chang-du-xian-zhi" class="header-anchor"></a></h2><p>有些题目会要求输入较长的文本，但对文本的长度进行了限制。<br>对于这种题目，既可以用BurpSuite抓包改包绕过，也可以直接在F12里改页面源代码。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Bugku 计算器（修改页面源代码）：http:&#x2F;&#x2F;123.206.87.240:8002&#x2F;yanzhengma&#x2F;</span><br><span class="line">DVWA 存储型XSS的标题栏会对长度进行限制，使用BurpSuite抓包绕过。</span><br></pre></td></tr></table></figure>
-
-
-
-
-
+<p>Bugku 计算器（修改页面源代码）：<a href="http://123.206.87.240:8002/yanzhengma/" target="_blank" rel="noopener">http://123.206.87.240:8002/yanzhengma/</a><br>DVWA 存储型XSS的标题栏会对长度进行限制，使用BurpSuite抓包绕过。</p>
 <h2><span id="shuang-xie">双写</span><a href="#shuang-xie" class="header-anchor"></a></h2><p>双写可以绕过对输入内容过滤的单次判断，在XSS、SQL注入和PHP代码审计的题目中比较常见。<br>双写顾名思义就是将被过滤的关键字符写两遍，比如，如果要添加XSS  Payload，又需要插入<script>标签，就可以构造如下的Payload：<scr<script>ipt>来绕过对<script>标签的单次过滤限制。<br>这样的方法不仅对XSS有用，也可以用于代码审计和SQL注入。<br>HGAME2019有一道XSS题目就是过滤了<script>，可以用双写绕过。</p>
 <h2 id="等价替代"><a href="#等价替代" class="headerlink" title="等价替代"></a>等价替代</h2><p>就是不用被过滤的字符，而使用没有被过滤却会产生相同效果的字符。</p>
 <p>比如，如果SQL注入题目中过滤了空格，可以用/**/绕过对空格的限制；XSS题目如果过滤了<script>标签，可以使用其他类型的payload；如果需要使用cat命令却被过滤，可以使用tac、more、less命令来替代等。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">实验吧 简单的SQL注入：http:&#x2F;&#x2F;www.shiyanbar.com&#x2F;ctf&#x2F;1875</span><br></pre></td></tr></table></figure>
-
-
-
-
-
+<p>实验吧 简单的SQL注入：<a href="http://www.shiyanbar.com/ctf/1875" target="_blank" rel="noopener">http://www.shiyanbar.com/ctf/1875</a></p>
 <h2 id="URL编码绕过"><a href="#URL编码绕过" class="headerlink" title="URL编码绕过"></a>URL编码绕过</h2><p>如果过滤了某个必须要用的字符串，输入的内容是以GET方式获取的（也就是直接在地址栏中输入），可以采用url编码绕过的方式。比如，过滤了 cat，可以使用 c%61t来绕过。</p>
 <h2 id="Linux命令使用反斜杠绕过"><a href="#Linux命令使用反斜杠绕过" class="headerlink" title="Linux命令使用反斜杠绕过"></a>Linux命令使用反斜杠绕过</h2><p>在Linux下，命令中加入反斜杠与原命令完全等价。例如，cat与 ca\t两条命令等价，效果完全相同。<br>可以利用这个特性来进行一些绕过操作（当然，这个仅限于命令执行漏洞）。</p>
 <h2 id="URL二次解码绕过"><a href="#URL二次解码绕过" class="headerlink" title="URL二次解码绕过"></a>URL二次解码绕过</h2><p>这个类型本来应该放在代码审计里面，但是既然是一种绕过过滤的姿势，就写在这里了。<br>如果源码中出现了urldecode()函数，可以利用url二次解码来绕过。<br>以下是一些常用的HTML URL编码：<br><img src="http://q9egne78c.bkt.clouddn.com/blog/20200501/47qjmfx9KN8u.bmp" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Bugku urldecode二次编码绕过：http:&#x2F;&#x2F;123.206.87.240:9009&#x2F;10.php</span><br></pre></td></tr></table></figure>
-
-
-
+<p>Bugku urldecode二次编码绕过：<a href="http://123.206.87.240:9009/10.php" target="_blank" rel="noopener">http://123.206.87.240:9009/10.php</a></p>
 <h2 id="数组绕过"><a href="#数组绕过" class="headerlink" title="数组绕过"></a>数组绕过</h2><p>详见PHP代码审计的“数组返回NULL”绕过。<br>数组绕过的应用很广，很多题目都可以用数组绕过。</p>
 <h2 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h2><p>SQL注入是一种灵活而复杂的攻击方式，归根结底还是考察对SQL语言的了解和根据输入不同数据网页的反应对后台语句的判断，当然也有sqlmap这样的自动化工具可以使用。<br>姿势：如果不用sqlmap或者是用不了，就一定要把SQL语言弄明白，sqlmap这样的自动化工具也可以使用。</p>
 <h2 id="使用sqlmap"><a href="#使用sqlmap" class="headerlink" title="使用sqlmap"></a>使用sqlmap</h2><p>sqlmap的应用范围还不大明确，我都是如果sqlmap没法注入就手工注入。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sqlmap教程：https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;4509bdf5e3d0</span><br></pre></td></tr></table></figure>
-
-
-
+<p>sqlmap教程：<a href="https://www.jianshu.com/p/4509bdf5e3d0" target="_blank" rel="noopener">https://www.jianshu.com/p/4509bdf5e3d0</a></p>
 <p>转载：<u><a href="https://www.cnblogs.com/daiorz/p/12294963.html" target="_blank" rel="noopener">https://www.cnblogs.com/daiorz/p/12294963.html</a></u></p>
 </script></p>
       
@@ -514,7 +487,7 @@
     
     <p><span class="copy-title">本文作者:</span><a  title="亖 玖">亖 玖</a></p>
     <p><span class="copy-title">发布时间:</span>2020-04-30, 23:55:54</p>
-    <p><span class="copy-title">最后更新:</span>2020-05-01, 00:13:56</p>
+    <p><span class="copy-title">最后更新:</span>2020-05-06, 12:59:55</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/04/30/CTF%E4%B8%ADWeb%E9%A2%98%E7%9B%AE%E7%9A%84%E5%B8%B8%E8%A7%81%E9%A2%98%E5%9E%8B%E5%8F%8A%E8%A7%A3%E9%A2%98%E5%A7%BF%E5%8A%BF/" title="CTF中Web题目的常见题型及解题姿势">http://yoursite.com/2020/04/30/CTF%E4%B8%ADWeb%E9%A2%98%E7%9B%AE%E7%9A%84%E5%B8%B8%E8%A7%81%E9%A2%98%E5%9E%8B%E5%8F%8A%E8%A7%A3%E9%A2%98%E5%A7%BF%E5%8A%BF/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
