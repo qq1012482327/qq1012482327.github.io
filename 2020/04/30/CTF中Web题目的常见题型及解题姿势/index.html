@@ -292,7 +292,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-05-06 13:43:30'>2020-04-30 23:55</time>
+        创建时间:<time class="date" title='更新时间: 2020-05-08 19:38:27'>2020-04-30 23:55</time>
         
     </div>
     <div class="article-meta">
@@ -372,8 +372,7 @@
 <h2><span id="cha-kan-wang-ye-yuan-dai-ma">查看网页源代码</span><a href="#cha-kan-wang-ye-yuan-dai-ma" class="header-anchor"></a></h2><p>按F12就都看到了，flag一般都在注释里，有时候注释里也会有一条hint或者是对解题有用的信息。</p>
 <p>BugKu web2:<a href="http://123.222.333.12:8002/web2">http://123.222.333.12:8002/web2</a><br>BugKu web3:<a href="http://123.222.333.12:8002/web3">http://123.222.333.12:8002/web3</a></p>
 <h2><span id="fa-song-http-qing-qiu">发送HTTP请求</span><a href="#fa-song-http-qing-qiu" class="header-anchor"></a></h2><p>可以用hackbar，有的也可以写脚本。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">BugKu web2基础$_GET:http:&#x2F;&#x2F;123.222.333.12:8002&#x2F;get&#x2F;</span><br><span class="line">BugKu web2基础$_POST:http:&#x2F;&#x2F;123.222.333.12:8002&#x2F;post&#x2F;</span><br><span class="line">BugKu 点击一百万次:http:&#x2F;&#x2F;123.222.333.12:8002&#x2F;test&#x2F;</span><br></pre></td></tr></table></figure>
-
+<p>BugKu web2基础$_GET:<a href="http://123.222.333.12:8002/get/">http://123.222.333.12:8002/get/</a><br>BugKu web2基础$_POST:<a href="http://123.222.333.12:8002/post/">http://123.222.333.12:8002/post/</a><br>BugKu 点击一百万次:<a href="http://123.222.333.12:8002/test/">http://123.222.333.12:8002/test/</a></p>
 <p>举个脚本的例子（题目是Bugku web基础$_POST):</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">r &#x3D; requests.post(&#39;http:&#x2F;&#x2F;123.222.333.12:8002&#x2F;post&#x2F;&#39;,data&#x3D;[&#39;what&#39; : &#39;flag&#39;])</span><br><span class="line">print(r.text)</span><br></pre></td></tr></table></figure>
 
@@ -400,7 +399,8 @@
 <h2><span id="python-pa-chong-xin-xi-chu-li">python爬虫信息处理</span><a href="#python-pa-chong-xin-xi-chu-li" class="header-anchor"></a></h2><p>这类题目一般都是给一个页面，页面中有算式或者是一些数字，要求在很短的时间内求出结果并提交，如果结果正确就可以返回flag。</p>
 <p>因为所给时间一般都很短而且计算比较复杂，所以只能写脚本。这种题目的脚本一般都需要用到requests库BeauifulSoup库（或者re库（正则表达式）），个人感觉使用BeautifulSoup简单一些。</p>
 <p>姿势：requests库和BeautifulSoup库熟练掌握后，再多做几道题或者写几个爬虫的项目，一般这类题目就没什么问题了。主要还是对BeautifulSoup的熟练掌握，另外还需要一点点web前端（html）的知识</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">Bugku 秋名山老司机： http:&#x2F;&#x2F;123.206.87.240:8002&#x2F;qiumingshan&#x2F;#这道题的脚本如下，还可以继续优化</span><br><span class="line">#经常出现执行了但是不弹flag的情况，多试几次就行了</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">import requests</span><br><span class="line"></span><br><span class="line">r &#x3D; requests.Session()</span><br><span class="line">s &#x3D; r.get(&quot;http:&#x2F;&#x2F;123.206.87.240:8002&#x2F;qiumingshan&#x2F;&quot;)</span><br><span class="line">s.encoding &#x3D; &#39;utf-8&#39;</span><br><span class="line">text &#x3D; s.text</span><br><span class="line">soup &#x3D; BeautifulSoup(text)</span><br><span class="line">tag &#x3D; soup.div</span><br><span class="line">express &#x3D; str(tag.string)</span><br><span class="line">express &#x3D; express[0 : -3]</span><br><span class="line">answer &#x3D; eval(express)</span><br><span class="line">ans &#x3D; &#123;&quot;value&quot; : answer&#125;</span><br><span class="line">flag &#x3D; r.post(&#39;http:&#x2F;&#x2F;123.206.87.240:8002&#x2F;qiumingshan&#x2F;&#39;, data &#x3D; ans)</span><br><span class="line">print(flag.text)实验吧 速度爆破： http:&#x2F;&#x2F;www.shiyanbar.com&#x2F;ctf&#x2F;1841</span><br></pre></td></tr></table></figure>
+<p>Bugku 秋名山老司机： <a href="http://123.206.87.240:8002/qiumingshan/#这道题的脚本如下，还可以继续优化" target="_blank" rel="noopener">http://123.206.87.240:8002/qiumingshan/#这道题的脚本如下，还可以继续优化</a><br>#经常出现执行了但是不弹flag的情况，多试几次就行了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">import requests</span><br><span class="line"></span><br><span class="line">r &#x3D; requests.Session()</span><br><span class="line">s &#x3D; r.get(&quot;http:&#x2F;&#x2F;123.206.87.240:8002&#x2F;qiumingshan&#x2F;&quot;)</span><br><span class="line">s.encoding &#x3D; &#39;utf-8&#39;</span><br><span class="line">text &#x3D; s.text</span><br><span class="line">soup &#x3D; BeautifulSoup(text)</span><br><span class="line">tag &#x3D; soup.div</span><br><span class="line">express &#x3D; str(tag.string)</span><br><span class="line">express &#x3D; express[0 : -3]</span><br><span class="line">answer &#x3D; eval(express)</span><br><span class="line">ans &#x3D; &#123;&quot;value&quot; : answer&#125;</span><br><span class="line">flag &#x3D; r.post(&#39;http:&#x2F;&#x2F;123.206.87.240:8002&#x2F;qiumingshan&#x2F;&#39;, data &#x3D; ans)</span><br><span class="line">print(flag.text)实验吧 速度爆破： http:&#x2F;&#x2F;www.shiyanbar.com&#x2F;ctf&#x2F;1841</span><br></pre></td></tr></table></figure>
 
 <p>HGAME2019的部分题目似乎还出现了反爬虫措施，但当时我还不会写爬虫，那一道题目也没有做，所以也不大清楚，以后如果再遇到那类题目再慢慢补上吧。</p>
 <h2><span id="php-dai-ma-shen-ji">PHP代码审计</span><a href="#php-dai-ma-shen-ji" class="header-anchor"></a></h2><p>代码审计覆盖面特别广，分类也很多，而且几乎什么样的比赛都会有，算是比较重要的题目类型之一吧。</p>
@@ -483,7 +483,7 @@
 <h2 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h2><p>SQL注入是一种灵活而复杂的攻击方式，归根结底还是考察对SQL语言的了解和根据输入不同数据网页的反应对后台语句的判断，当然也有sqlmap这样的自动化工具可以使用。<br>姿势：如果不用sqlmap或者是用不了，就一定要把SQL语言弄明白，sqlmap这样的自动化工具也可以使用。</p>
 <h2 id="使用sqlmap"><a href="#使用sqlmap" class="headerlink" title="使用sqlmap"></a>使用sqlmap</h2><p>sqlmap的应用范围还不大明确，我都是如果sqlmap没法注入就手工注入。</p>
 <p>sqlmap教程：<a href="https://www.jianshu.com/p/4509bdf5e3d0" target="_blank" rel="noopener">https://www.jianshu.com/p/4509bdf5e3d0</a></p>
-<p>转载：<u><a href="https://www.cnblogs.com/daiorz/p/12294963.html" target="_blank" rel="noopener">https://www.cnblogs.com/daiorz/p/12294963.html</a></u></p>
+<p>转载：<a href="https://www.cnblogs.com/daiorz/p/12294963.html" target="_blank" rel="noopener">https://www.cnblogs.com/daiorz/p/12294963.html</a></p>
 </script></p>
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1012482327@qq.com </span>
@@ -501,7 +501,7 @@
     
     <p><span class="copy-title">本文作者:</span><a  title="亖 玖">亖 玖</a></p>
     <p><span class="copy-title">发布时间:</span>2020-04-30, 23:55:54</p>
-    <p><span class="copy-title">最后更新:</span>2020-05-06, 13:43:30</p>
+    <p><span class="copy-title">最后更新:</span>2020-05-08, 19:38:27</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/04/30/CTF%E4%B8%ADWeb%E9%A2%98%E7%9B%AE%E7%9A%84%E5%B8%B8%E8%A7%81%E9%A2%98%E5%9E%8B%E5%8F%8A%E8%A7%A3%E9%A2%98%E5%A7%BF%E5%8A%BF/" title="CTF中Web题目的常见题型及解题姿势">http://yoursite.com/2020/04/30/CTF%E4%B8%ADWeb%E9%A2%98%E7%9B%AE%E7%9A%84%E5%B8%B8%E8%A7%81%E9%A2%98%E5%9E%8B%E5%8F%8A%E8%A7%A3%E9%A2%98%E5%A7%BF%E5%8A%BF/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
