@@ -324,26 +324,43 @@
 
 
 
-    <div class="comments" id="comments"></div>
-<!-- 来必力City版安装代码 -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC81MDAxMC8yNjUwMQ==">
-<script type="text/javascript">
-   (function(d, s) {
-       var j, e = d.getElementsByTagName(s)[0];
+    - let emojiMaps = '""'
+if site.data.valine
+  - emojiMaps = JSON.stringify(site.data.valine)
 
-       if (typeof LivereTower === 'function') { return; }
+#vcomment.vcomment
+script(src=url_for(theme.CDN.valine))
+script.
+  var requestSetting = function (from,set) {
+    var from = from
+    var setting = set.split(',').filter(function(item){
+    return from.indexOf(item) > -1
+    });
+    setting = setting.length == 0 ? from :setting;
+    return setting
+  }
 
-       j = d.createElement(s);
-       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-       j.async = true;
+  var guestInfo = requestSetting(['nick','mail','link'],'#{ theme.valine.guest_info }')
+  var requiredFields = requestSetting(['nick','mail','link'],'#{ theme.valine.requiredFields }')
 
-       e.parentNode.insertBefore(j, e);
-   })(document, 'script');
-</script>
-<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-</div>
-<!-- City版安装代码已完成 -->
-</script>
+  window.valine = new Valine({
+    el:'#vcomment',
+    appId: '#{theme.valine.appId}',
+    appKey: '#{theme.valine.appKey}',
+    notify: #{theme.valine.notify},
+    verify: #{theme.valine.verify},
+    placeholder: '#{theme.valine.placeholder}',
+    avatar: '#{theme.valine.avatar}',
+    meta: guestInfo,
+    pageSize: '#{theme.valine.pageSize}',
+    lang: '#{theme.valine.lang}',
+    recordIP: #{theme.valine.recordIP},
+    serverURLs: '#{theme.valine.serverURLs}',
+    emojiCDN: '#{theme.valine.emojiCDN}',
+    emojiMaps: !{emojiMaps},
+    enableQQ: #{theme.valine.enableQQ},
+    requiredFields: requiredFields
+  });
 
 
 
