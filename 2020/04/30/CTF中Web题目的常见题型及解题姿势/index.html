@@ -508,44 +508,27 @@
 
 
 
-    - let emojiMaps = '""'
-if site.data.valine
-  - emojiMaps = JSON.stringify(site.data.valine)
-
-#vcomment.vcomment
-script(src=url_for(theme.CDN.valine))
-script.
-  var requestSetting = function (from,set) {
-    var from = from
-    var setting = set.split(',').filter(function(item){
-    return from.indexOf(item) > -1
-    });
-    setting = setting.length == 0 ? from :setting;
-    return setting
-  }
-
-  var guestInfo = requestSetting(['nick','mail','link'],'#{ theme.valine.guest_info }')
-  var requiredFields = requestSetting(['nick','mail','link'],'#{ theme.valine.requiredFields }')
-
-  window.valine = new Valine({
-    el:'#vcomment',
-    appId: '#{theme.valine.appId}',
-    appKey: '#{theme.valine.appKey}',
-    notify: #{theme.valine.notify},
-    verify: #{theme.valine.verify},
-    placeholder: '#{theme.valine.placeholder}',
-    avatar: '#{theme.valine.avatar}',
-    meta: guestInfo,
-    pageSize: '#{theme.valine.pageSize}',
-    lang: '#{theme.valine.lang}',
-    recordIP: #{theme.valine.recordIP},
-    serverURLs: '#{theme.valine.serverURLs}',
-    emojiCDN: '#{theme.valine.emojiCDN}',
-    emojiMaps: !{emojiMaps},
-    enableQQ: #{theme.valine.enableQQ},
-    requiredFields: requiredFields
-  });
-
+    {% if page.comments and not is_home() %}
+  <div class="comments" id="comments">
+    {% if config.disqus_shortname %}
+    <div style="text-align:center;">
+        <button class="btn" id="load-disqus" onclick="disqus.load();">加载 Disqus 评论</button>
+    </div>
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript" target="_blank" rel="noopener">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    {% elif config.duoshuo_shortname %}
+      <div class="ds-thread" data-thread-key="{{ page.path }}"
+           data-title="{{ page.title }}" data-url="{{ page.permalink }}">
+      </div>
+    
+    {% elif theme.valine.enable and theme.valine.appid and theme.valine.appkey %}
+      <div id="vcomment"></div>
+    {% endif %}
+  </div>
 
 
 
