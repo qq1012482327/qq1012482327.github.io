@@ -114,37 +114,6 @@
   </entry>
   
   <entry>
-    <title>Hexo配置目录</title>
-    <link href="http://yoursite.com/2020/04/26/Hexo%E9%85%8D%E7%BD%AE%E7%9B%AE%E5%BD%95/"/>
-    <id>http://yoursite.com/2020/04/26/Hexo%E9%85%8D%E7%BD%AE%E7%9B%AE%E5%BD%95/</id>
-    <published>2020-04-26T14:00:55.000Z</published>
-    <updated>2020-05-20T13:37:17.817Z</updated>
-    
-    <content type="html"><![CDATA[<div class="toc"><!-- toc --><!-- tocstop --><p>```</p><h2><span id="xiao-guo">效果</span><a href="#xiao-guo" class="header-anchor"></a></h2><p>可以在相应位置显示目录导航，效果文章开头。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;div class=&quot;toc&quot;&gt;
-
-&lt;!-- toc --&gt;
-
-
-
-&lt;!-- tocstop --&gt;
-
-&lt;p&gt;```&lt;/p&gt;
-&lt;h2&gt;&lt;span id=&quot;xiao-guo&quot;&gt;效果&lt;/span&gt;&lt;a href=&quot;#xiao-guo&quot; class=&quot;header-anchor&quot;&gt;&lt;
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>给blog加上特效</title>
     <link href="http://yoursite.com/2020/04/23/%E7%BB%99blog%E5%8A%A0%E4%B8%8A%E7%89%B9%E6%95%88/"/>
     <id>http://yoursite.com/2020/04/23/%E7%BB%99blog%E5%8A%A0%E4%B8%8A%E7%89%B9%E6%95%88/</id>
