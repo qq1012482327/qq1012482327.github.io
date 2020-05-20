@@ -77,7 +77,7 @@
       <link href="/2020/04/26/Hexo%E9%85%8D%E7%BD%AE%E7%9B%AE%E5%BD%95/"/>
       <url>/2020/04/26/Hexo%E9%85%8D%E7%BD%AE%E7%9B%AE%E5%BD%95/</url>
       
-        <content type="html"><![CDATA[<!-- toc --><!-- tocstop --><p>```</p><h2><span id="效果">效果</span></h2><p>可以在相应位置显示目录导航，效果文章开头。</p>]]></content>
+        <content type="html"><![CDATA[<div class="toc"><!-- toc --><!-- tocstop --><p>```</p><h2><span id="xiao-guo">效果</span><a href="#xiao-guo" class="header-anchor"></a></h2><p>可以在相应位置显示目录导航，效果文章开头。</p>]]></content>
       
       
       
