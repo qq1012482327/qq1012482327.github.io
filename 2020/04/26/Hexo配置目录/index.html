@@ -272,7 +272,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-04-29 22:03:51'>2020-04-26 22:00</time>
+        创建时间:<time class="date" title='更新时间: 2020-05-20 21:30:24'>2020-04-26 22:00</time>
         
     </div>
     <div class="article-meta">
@@ -294,7 +294,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">效果</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#"><span class="toc-text">1.1配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-text">效果</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -310,16 +310,29 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <div class="toc">
+        <p>[toc] </p>
+<h2><span id="mu-lu">目录</span><a href="#mu-lu" class="header-anchor"></a></h2><p>Hexo的扩展功能很多，目录配置也很简单。</p>
+<h2><span id="an-zhuang">安装</span><a href="#an-zhuang" class="header-anchor"></a></h2><p>首先安装hexo-toc插件，代码如下：</p>
+<pre><code>npm install hexo-toc --save</code></pre><h2><span id="pei-zhi">配置</span><a href="#pei-zhi" class="header-anchor"></a></h2><p>然后配置站点文件_config.yml 代码如下：</p>
+<pre><code>toc:
+  maxdepth: 3
+  class: toc
+  slugify: transliteration
+  decodeEntities: false
+  anchor:
+    position: after
+    symbol: &#39;&#39;
+    style: header-anchor</code></pre><h3><span id="1-1-pei-zhi">1.1配置</span><a href="#1-1-pei-zhi" class="header-anchor"></a></h3><p>可以修改maxdepth参数1-6，设置目录级</p>
+<h2><span id="shi-yong">使用</span><a href="#shi-yong" class="header-anchor"></a></h2><p>在文章开头加入toc的占位符：</p>
+<pre><code>&lt;div class=&quot;tocStart&quot;&gt;&lt;/div&gt;
 
-<!-- toc -->
+&lt;!-- toc --&gt;
 
 
 
-<!-- tocstop -->
+&lt;!-- tocstop --&gt;
 
-<p>```</p>
-<h2><span id="xiao-guo">效果</span><a href="#xiao-guo" class="header-anchor"></a></h2><p>可以在相应位置显示目录导航，效果文章开头。</p>
+&lt;div class=&quot;tocEnd&quot;&gt;&lt;/div&gt;</code></pre><h2><span id="xiao-guo">效果</span><a href="#xiao-guo" class="header-anchor"></a></h2><p>可以在相应位置显示目录导航，效果文章开头。</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1012482327@qq.com </span>
@@ -337,7 +350,7 @@
     
     <p><span class="copy-title">本文作者:</span><a  title="亖 玖">亖 玖</a></p>
     <p><span class="copy-title">发布时间:</span>2020-04-26, 22:00:55</p>
-    <p><span class="copy-title">最后更新:</span>2020-04-29, 22:03:51</p>
+    <p><span class="copy-title">最后更新:</span>2020-05-20, 21:30:24</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/04/26/Hexo%E9%85%8D%E7%BD%AE%E7%9B%AE%E5%BD%95/" title="Hexo配置目录">http://yoursite.com/2020/04/26/Hexo%E9%85%8D%E7%BD%AE%E7%9B%AE%E5%BD%95/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
