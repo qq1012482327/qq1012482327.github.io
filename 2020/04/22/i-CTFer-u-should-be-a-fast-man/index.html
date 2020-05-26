@@ -276,7 +276,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-04-26 22:47:07'>2020-04-22 22:06</time>
+        创建时间:<time class="date" title='更新时间: 2020-05-26 18:41:02'>2020-04-22 22:06</time>
         
     </div>
     <div class="article-meta">
@@ -317,16 +317,16 @@
         <hr>
 <p>i春秋  upload题</p>
 <p>页面打开显示下图</p>
-<p><img src="http://q9egne78c.bkt.clouddn.com/blog/20200426/j48hdVwjO86H.png?imageslim" alt></p>
+<p><img src="http://cdn.sijiu.ren/blog/20200426/j48hdVwjO86H.png?imageslim" alt></p>
 <p>查看源代码没啥发现。。。</p>
 <p>burp抓包，发现响应头有flag值的字符串</p>
-<p><img src="http://q9egne78c.bkt.clouddn.com/blog/20200426/mj6IK9V7jmoN.png?imageslim" alt></p>
+<p><img src="http://cdn.sijiu.ren/blog/20200426/mj6IK9V7jmoN.png?imageslim" alt></p>
 <p>bese64解码</p>
-<p><img src="http://q9egne78c.bkt.clouddn.com/blog/20200426/5hDaw2uYBrB2.png?imageslim" alt></p>
+<p><img src="http://cdn.sijiu.ren/blog/20200426/5hDaw2uYBrB2.png?imageslim" alt></p>
 <p>再次base64解码</p>
 <p>得到一组数值</p>
 <p>源代码提示将得到的内容POST</p>
-<p><img src="http://q9egne78c.bkt.clouddn.com/blog/20200426/ci0ALia2U8gj.png?imageslim" alt></p>
+<p><img src="http://cdn.sijiu.ren/blog/20200426/ci0ALia2U8gj.png?imageslim" alt></p>
 <p>返回新的响应头flag值，写个脚本跑看看</p>
 <pre><code class="python">#!/usr/bin/env python3
 import base64
@@ -344,12 +344,12 @@ data = {&quot;ichunqiu&quot;:key}
 get = url_a.post(url,data = data)
 print(get.text)</code></pre>
 <p>跑出来一个路径</p>
-<p><img src="http://q9egne78c.bkt.clouddn.com/blog/20200426/yNoOlvtzX07C.png?imageslim" alt="mark"></p>
+<p><img src="http://cdn.sijiu.ren/blog/20200426/yNoOlvtzX07C.png?imageslim" alt="mark"></p>
 <p>点击按钮进入</p>
-<p><img src="http://q9egne78c.bkt.clouddn.com/blog/20200426/N12UexooQa8F.png?imageslim" alt></p>
+<p><img src="http://cdn.sijiu.ren/blog/20200426/N12UexooQa8F.png?imageslim" alt></p>
 <p>通过扫描目录发现有/.svn目录提示403</p>
 <p>svn泄露得到/.svn/wc.db</p>
-<p><img src="http://q9egne78c.bkt.clouddn.com/blog/20200426/LI0fxYL7ynLG.png?imageslim" alt></p>
+<p><img src="http://cdn.sijiu.ren/blog/20200426/LI0fxYL7ynLG.png?imageslim" alt></p>
 <p>md5解码，用得到的md5(8638d5263ab0d3face193725c23ce095)进行登录，密码随便填</p>
 <p>下面是验证码md5脚本：</p>
 <pre><code class="python">#!/usr/bin/env python3
@@ -366,9 +366,9 @@ for i in r:
         print a
         break</code></pre>
 <p>提示新页面</p>
-<p><img src="http://q9egne78c.bkt.clouddn.com/blog/20200426/ziPRz1Eb7eqf.png?imageslim" alt></p>
+<p><img src="http://cdn.sijiu.ren/blog/20200426/ziPRz1Eb7eqf.png?imageslim" alt></p>
 <p>文件上传。。。</p>
-<p><img src="http://q9egne78c.bkt.clouddn.com/blog/20200426/l1eGreuYo924.png?imageslim" alt="mark"></p>
+<p><img src="http://cdn.sijiu.ren/blog/20200426/l1eGreuYo924.png?imageslim" alt="mark"></p>
 <p>php、php3、php4、php5、php7、pht、phtml、phps 能被解析的后缀</p>
 <p>一个个试过去发现pht能被解析</p>
 <p>burp改包得到flag</p>
@@ -390,7 +390,7 @@ for i in r:
     
     <p><span class="copy-title">本文作者:</span><a  title="亖 玖">亖 玖</a></p>
     <p><span class="copy-title">发布时间:</span>2020-04-22, 22:06:00</p>
-    <p><span class="copy-title">最后更新:</span>2020-04-26, 22:47:07</p>
+    <p><span class="copy-title">最后更新:</span>2020-05-26, 18:41:02</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/04/22/i-CTFer-u-should-be-a-fast-man/" title="Hi,CTFer!u should be a fast man:)">http://yoursite.com/2020/04/22/i-CTFer-u-should-be-a-fast-man/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。

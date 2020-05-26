@@ -276,7 +276,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-05-25 16:26:17'>2020-04-30 23:55</time>
+        创建时间:<time class="date" title='更新时间: 2020-05-26 18:41:44'>2020-04-30 23:55</time>
         
     </div>
     <div class="article-meta">
@@ -464,7 +464,7 @@ if(isset($_GET[&#39;code&#39;])){
 } 
 //flag in / 
 ?&gt; </code></pre><p>最主要的区别就是过滤了$和_，也就是说无法使用变量符号$了。<br>这时候可以考虑采用通配符绕过。<br>通配符有点像正则表达式，有自己的匹配规则，看这张图：</p>
-<p><img src="http://q9egne78c.bkt.clouddn.com/blog/20200501/J28x2Wmxqnal.bmp" alt></p>
+<p><img src="http://cdn.sijiu.ren/blog/20200501/J28x2Wmxqnal.bmp" alt></p>
 <p>所以构造一下通配符就是/???/??? /<em>。<br>因为过滤了变量符号，没法通过上面那种方法来执行了。但是，可以通过闭合PHP标记来执行，也就是：?&gt;&lt;?=/???/??? /</em>?&gt;（/bin/cat /<em>）。<br>所以本题的payload为：?code=?&gt;&lt;?=/???/??? /</em>?&gt;<br>具体解法可以参照此篇文章的前两道题目：<a href="https://www.jianshu.com/p/ecc2414ec110" target="_blank" rel="noopener">https://www.jianshu.com/p/ecc2414ec110</a></p>
 <h2 id="命令执行漏洞"><a href="#命令执行漏洞" class="headerlink" title="命令执行漏洞"></a>命令执行漏洞</h2><p> assert()函数引起的命令执行</p>
 <p>ssert函数的参数为字符串时，会将字符串当做PHP命令来执行。<br>例如：assert(‘phpinfo()’)相当于执行<?php phpinfo() ?><br>以一道题目为例：<br>本题目中题目文件夹下放置了一个隐藏的flag文件。</p>
@@ -500,7 +500,7 @@ HGAME2019有一道XSS题目就是过滤了&lt;script&gt;，可以用双写绕过
 
 实验吧 简单的SQL注入：http://www.shiyanbar.com/ctf/1875</code></pre><h2 id="URL编码绕过"><a href="#URL编码绕过" class="headerlink" title="URL编码绕过"></a>URL编码绕过</h2><p>如果过滤了某个必须要用的字符串，输入的内容是以GET方式获取的（也就是直接在地址栏中输入），可以采用url编码绕过的方式。比如，过滤了 cat，可以使用 c%61t来绕过。</p>
 <h2 id="Linux命令使用反斜杠绕过"><a href="#Linux命令使用反斜杠绕过" class="headerlink" title="Linux命令使用反斜杠绕过"></a>Linux命令使用反斜杠绕过</h2><p>在Linux下，命令中加入反斜杠与原命令完全等价。例如，cat与 ca\t两条命令等价，效果完全相同。<br>可以利用这个特性来进行一些绕过操作（当然，这个仅限于命令执行漏洞）。</p>
-<h2 id="URL二次解码绕过"><a href="#URL二次解码绕过" class="headerlink" title="URL二次解码绕过"></a>URL二次解码绕过</h2><p>这个类型本来应该放在代码审计里面，但是既然是一种绕过过滤的姿势，就写在这里了。<br>如果源码中出现了urldecode()函数，可以利用url二次解码来绕过。<br>以下是一些常用的HTML URL编码：<br><img src="http://q9egne78c.bkt.clouddn.com/blog/20200501/47qjmfx9KN8u.bmp" alt></p>
+<h2 id="URL二次解码绕过"><a href="#URL二次解码绕过" class="headerlink" title="URL二次解码绕过"></a>URL二次解码绕过</h2><p>这个类型本来应该放在代码审计里面，但是既然是一种绕过过滤的姿势，就写在这里了。<br>如果源码中出现了urldecode()函数，可以利用url二次解码来绕过。<br>以下是一些常用的HTML URL编码：<br><img src="http://cdn.sijiu.ren/blog/20200501/47qjmfx9KN8u.bmp" alt></p>
 <p>Bugku urldecode二次编码绕过：<a href="http://123.206.87.240:9009/10.php" target="_blank" rel="noopener">http://123.206.87.240:9009/10.php</a></p>
 <h2 id="数组绕过"><a href="#数组绕过" class="headerlink" title="数组绕过"></a>数组绕过</h2><p>详见PHP代码审计的“数组返回NULL”绕过。<br>数组绕过的应用很广，很多题目都可以用数组绕过。</p>
 <h2 id="SQL注入"><a href="#SQL注入" class="headerlink" title="SQL注入"></a>SQL注入</h2><p>SQL注入是一种灵活而复杂的攻击方式，归根结底还是考察对SQL语言的了解和根据输入不同数据网页的反应对后台语句的判断，当然也有sqlmap这样的自动化工具可以使用。<br>姿势：如果不用sqlmap或者是用不了，就一定要把SQL语言弄明白，sqlmap这样的自动化工具也可以使用。</p>
@@ -524,7 +524,7 @@ HGAME2019有一道XSS题目就是过滤了&lt;script&gt;，可以用双写绕过
     
     <p><span class="copy-title">本文作者:</span><a  title="亖 玖">亖 玖</a></p>
     <p><span class="copy-title">发布时间:</span>2020-04-30, 23:55:54</p>
-    <p><span class="copy-title">最后更新:</span>2020-05-25, 16:26:17</p>
+    <p><span class="copy-title">最后更新:</span>2020-05-26, 18:41:44</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/04/30/CTF%E4%B8%ADWeb%E9%A2%98%E7%9B%AE%E7%9A%84%E5%B8%B8%E8%A7%81%E9%A2%98%E5%9E%8B%E5%8F%8A%E8%A7%A3%E9%A2%98%E5%A7%BF%E5%8A%BF/" title="CTF中Web题目的常见题型及解题姿势">http://yoursite.com/2020/04/30/CTF%E4%B8%ADWeb%E9%A2%98%E7%9B%AE%E7%9A%84%E5%B8%B8%E8%A7%81%E9%A2%98%E5%9E%8B%E5%8F%8A%E8%A7%A3%E9%A2%98%E5%A7%BF%E5%8A%BF/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。

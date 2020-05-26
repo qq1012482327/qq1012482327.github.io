@@ -276,7 +276,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-05-25 14:02:12'>2020-04-29 21:58</time>
+        创建时间:<time class="date" title='更新时间: 2020-05-26 18:41:25'>2020-04-29 21:58</time>
         
     </div>
     <div class="article-meta">
@@ -322,7 +322,7 @@
 <h4 id="Nginx解析漏洞"><a href="#Nginx解析漏洞" class="headerlink" title="Nginx解析漏洞"></a>Nginx解析漏洞</h4><p>解析： (任意文件名)/(任意文件名).php | (任意文件名)%00.php<br> 描述：目前Nginx主要有这两种漏洞，一个是对任意文件名，在后面添加/任意文件名.php的解析漏洞，比如原本文件名是test.jpg，可以添加为test.jpg/x.php进行解析攻击。<br> 还有一种是对低版本的Nginx可以在任意文件名后面添加%00.php进行解析攻击。</p>
 <h3 id="猜测过滤规则绕过"><a href="#猜测过滤规则绕过" class="headerlink" title="猜测过滤规则绕过"></a>猜测过滤规则绕过</h3><h4 id="文件后缀名黑名单："><a href="#文件后缀名黑名单：" class="headerlink" title="文件后缀名黑名单："></a>文件后缀名黑名单：</h4><p>​                        大小写绕过 <code>Php、PhP···</code><br>​                        利用能被解析的后缀名，例如<code>php、php3、php4、php5、php7、pht、phtml、phps</code></p>
 <h4 id="MIME类型绕过"><a href="#MIME类型绕过" class="headerlink" title="MIME类型绕过"></a>MIME类型绕过</h4><p>​                        BurpSuite<code>抓包,更改</code>content-type<code>请求头为</code>image/gif、image/png、image/jpg</p>
-<p><img src="http://q9egne78c.bkt.clouddn.com/blog/20200430/Bmm4AQeftwkO.bmp" alt="mark"></p>
+<p><img src="http://cdn.sijiu.ren/blog/20200430/Bmm4AQeftwkO.bmp" alt></p>
 <h4 id="图片马内容检测"><a href="#图片马内容检测" class="headerlink" title="图片马内容检测"></a>图片马内容检测</h4><p>​                  更换一句话木马形式<code>&lt;% eval request(&quot;123&quot;)%&gt;</code>等等</p>
 <h4 id="文件内容头检测"><a href="#文件内容头检测" class="headerlink" title="文件内容头检测"></a>文件内容头检测</h4><p>上述方法均失效时可以考虑一下网站是否检测了文件头<br> 解决方法1：添加图片文件头到木马文件<br> <code>GIF89a? &lt;% eval request(&quot;123&quot;)%&gt;</code><br> 文件头对照参考：<a href="https://blog.csdn.net/rrrfff/article/details/7484109" target="_blank" rel="noopener">https://blog.csdn.net/rrrfff/article/details/7484109</a><br> 解决方法2：将一张图片与一句话木马文件结合<br> 1.记事本打开图片，在末尾或者之中添加一句话木马 2.使用命令将图片与木马文件结合,链接：<a href="https://jingyan.baidu.com/article/a65957f42c7c1224e67f9bb1.html(注：麻烦，且命令好像不对)" target="_blank" rel="noopener">https://jingyan.baidu.com/article/a65957f42c7c1224e67f9bb1.html(注：麻烦，且命令好像不对)</a></p>
 <h3 id="其他姿势"><a href="#其他姿势" class="headerlink" title="其他姿势"></a>其他姿势</h3><h4 id="竞争上传"><a href="#竞争上传" class="headerlink" title="竞争上传"></a>竞争上传</h4><p> 文件上传后，网站系统会对文件进行恶意代码检测，若是存在恶意代码，则会删除该文件 </p>
@@ -354,7 +354,7 @@
     
     <p><span class="copy-title">本文作者:</span><a  title="亖 玖">亖 玖</a></p>
     <p><span class="copy-title">发布时间:</span>2020-04-29, 21:58:56</p>
-    <p><span class="copy-title">最后更新:</span>2020-05-25, 14:02:12</p>
+    <p><span class="copy-title">最后更新:</span>2020-05-26, 18:41:25</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/04/29/CTF%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87%E5%A7%BF%E5%8A%BF/" title="CTF文件上传绕过姿势">http://yoursite.com/2020/04/29/CTF%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87%E5%A7%BF%E5%8A%BF/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
