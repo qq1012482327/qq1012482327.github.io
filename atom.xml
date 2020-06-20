@@ -174,22 +174,22 @@
   
   <entry>
     <title>Hi,CTFer!u should be a fast man:)</title>
-    <link href="http://yoursite.com/2020/04/22/i-CTFer-u-should-be-a-fast-man/"/>
-    <id>http://yoursite.com/2020/04/22/i-CTFer-u-should-be-a-fast-man/</id>
-    <published>2020-04-22T14:06:00.000Z</published>
-    <updated>2020-05-26T10:41:02.044Z</updated>
+    <link href="http://yoursite.com/2020/04/23/i-CTFer-u-should-be-a-fast-man/"/>
+    <id>http://yoursite.com/2020/04/23/i-CTFer-u-should-be-a-fast-man/</id>
+    <published>2020-04-22T16:47:14.782Z</published>
+    <updated>2020-06-20T04:37:09.172Z</updated>
     
-    <content type="html"><![CDATA[<hr><p>i春秋  upload题</p><p>页面打开显示下图</p><p><img src="http://cdn.sijiu.ren/blog/20200426/j48hdVwjO86H.png?imageslim" alt></p><p>查看源代码没啥发现。。。</p><p>burp抓包，发现响应头有flag值的字符串</p><p><img src="http://cdn.sijiu.ren/blog/20200426/mj6IK9V7jmoN.png?imageslim" alt></p><p>bese64解码</p><p><img src="http://cdn.sijiu.ren/blog/20200426/5hDaw2uYBrB2.png?imageslim" alt></p><p>再次base64解码</p><p>得到一组数值</p><p>源代码提示将得到的内容POST</p><p><img src="http://cdn.sijiu.ren/blog/20200426/ci0ALia2U8gj.png?imageslim" alt></p><p>返回新的响应头flag值，写个脚本跑看看</p><pre><code class="python">#!/usr/bin/env python3import base64import requestsurl = &quot;http://9e05cc717ffc4e4da52b8203470cdf6f6fca6fdb7574432a.changame.ichunqiu.com/&quot;url_a = requests.session()a = url_a.get(url).headers[&#39;FLAG&#39;]key_a = base64.b64decode(a)key = str(key_a).split(&#39;:&#39;)key = key[1][1:-1]key = base64.b64decode(key)data = {&quot;ichunqiu&quot;:key}get = url_a.post(url,data = data)print(get.text)</code></pre><p>跑出来一个路径</p><p><img src="http://cdn.sijiu.ren/blog/20200426/yNoOlvtzX07C.png?imageslim" alt="mark"></p><p>点击按钮进入</p><p><img src="http://cdn.sijiu.ren/blog/20200426/N12UexooQa8F.png?imageslim" alt></p><p>通过扫描目录发现有/.svn目录提示403</p><p>svn泄露得到/.svn/wc.db</p><p><img src="http://cdn.sijiu.ren/blog/20200426/LI0fxYL7ynLG.png?imageslim" alt></p><p>md5解码，用得到的md5(8638d5263ab0d3face193725c23ce095)进行登录，密码随便填</p><p>下面是验证码md5脚本：</p><pre><code class="python">#!/usr/bin/env python3import hashlibimport itertools as itswords = &quot;1234568790abcdefghijklmnopqrstuvwxyz&quot;r = its.product(words, repeat=5)for i in r:    a = &quot;&quot;.join(i)    md5 = hashlib.md5(a.encode(&#39;utf-8&#39;)).hexdigest()    if(md5[0:6] == &#39;aa2cec&#39;):        print a        break</code></pre><p>提示新页面</p><p><img src="http://cdn.sijiu.ren/blog/20200426/ziPRz1Eb7eqf.png?imageslim" alt></p><p>文件上传。。。</p><p><img src="http://cdn.sijiu.ren/blog/20200426/l1eGreuYo924.png?imageslim" alt="mark"></p><p>php、php3、php4、php5、php7、pht、phtml、phps 能被解析的后缀</p><p>一个个试过去发现pht能被解析</p><p>burp改包得到flag</p><p><u>参考：<a href="https://writeup.ctfhub.com/Skill/Web/信息泄露/7a999d34.html" target="_blank" rel="noopener">https://writeup.ctfhub.com/Skill/Web/信息泄露/7a999d34.html</a></u></p>]]></content>
+    <content type="html"><![CDATA[<hr><p>记录做过的一道i春秋  upload题</p><p>页面打开显示下图</p><p><img src="http://cdn.sijiu.ren/blog/20200426/j48hdVwjO86H.png?imageslim" alt></p><p>查看源代码没啥发现。。。</p><p>burp抓包，发现响应头有flag值的字符串</p><p><img src="http://cdn.sijiu.ren/blog/20200426/mj6IK9V7jmoN.png?imageslim" alt></p><p>bese64解码</p><p><img src="http://cdn.sijiu.ren/blog/20200426/5hDaw2uYBrB2.png?imageslim" alt></p><p>再次base64解码</p><p>得到一组数值</p><p>源代码提示将得到的内容POST</p><p><img src="http://cdn.sijiu.ren/blog/20200426/ci0ALia2U8gj.png?imageslim" alt></p><p>返回新的响应头flag值，脚本跑看看</p><pre><code class="python">#!/usr/bin/env python3import base64import requestsurl = &quot;http://9e05cc717ffc4e4da52b8203470cdf6f6fca6fdb7574432a.changame.ichunqiu.com/&quot;url_a = requests.session()a = url_a.get(url).headers[&#39;FLAG&#39;]key_a = base64.b64decode(a)key = str(key_a).split(&#39;:&#39;)key = key[1][1:-1]key = base64.b64decode(key)data = {&quot;ichunqiu&quot;:key}get = url_a.post(url,data = data)print(get.text)</code></pre><p>跑出来一个路径</p><p><img src="http://cdn.sijiu.ren/blog/20200426/yNoOlvtzX07C.png?imageslim" alt="mark"></p><p>点击按钮进入</p><p><img src="http://cdn.sijiu.ren/blog/20200426/N12UexooQa8F.png?imageslim" alt></p><p>通过扫描目录发现有/.svn目录提示403</p><p>svn泄露得到/.svn/wc.db</p><p><img src="http://cdn.sijiu.ren/blog/20200426/LI0fxYL7ynLG.png?imageslim" alt></p><p>md5解码，用得到的md5(8638d5263ab0d3face193725c23ce095)进行登录，密码随便填</p><p>下面是验证码md5脚本：</p><pre><code class="python">#!/usr/bin/env python3import hashlibimport itertools as itswords = &quot;1234568790abcdefghijklmnopqrstuvwxyz&quot;r = its.product(words, repeat=5)for i in r:    a = &quot;&quot;.join(i)    md5 = hashlib.md5(a.encode(&#39;utf-8&#39;)).hexdigest()    if(md5[0:6] == &#39;aa2cec&#39;):        print a        break</code></pre><p>提示新页面</p><p><img src="http://cdn.sijiu.ren/blog/20200426/ziPRz1Eb7eqf.png?imageslim" alt></p><p>文件上传。。。</p><p><img src="http://cdn.sijiu.ren/blog/20200426/l1eGreuYo924.png?imageslim" alt="mark"></p><p>php、php3、php4、php5、php7、pht、phtml、phps 能被解析的后缀</p><p>一个个试过去发现pht能被解析</p><p>burp改包得到flag</p><p><u>参考：<a href="https://writeup.ctfhub.com/Skill/Web/信息泄露/7a999d34.html" target="_blank" rel="noopener">https://writeup.ctfhub.com/Skill/Web/信息泄露/7a999d34.html</a></u></p>]]></content>
     
     <summary type="html">
     
       
       
         &lt;hr&gt;
-&lt;p&gt;i春秋  upload题&lt;/p&gt;
+&lt;p&gt;记录做过的一道i春秋  upload题&lt;/p&gt;
 &lt;p&gt;页面打开显示下图&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;http://cdn.sijiu.ren/blog/20200426/j48hdVwjO86H.png?imageslim&quot; alt&gt;&lt;/p&gt;
-&lt;p&gt;查看源代码没啥发现。。
+&lt;p&gt;查看源代
       
     
     </summary>
