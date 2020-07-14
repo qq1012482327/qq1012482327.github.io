@@ -149,30 +149,6 @@
   </entry>
   
   <entry>
-    <title>给blog加上特效</title>
-    <link href="http://yoursite.com/2020/04/23/%E7%BB%99blog%E5%8A%A0%E4%B8%8A%E7%89%B9%E6%95%88/"/>
-    <id>http://yoursite.com/2020/04/23/%E7%BB%99blog%E5%8A%A0%E4%B8%8A%E7%89%B9%E6%95%88/</id>
-    <published>2020-04-23T10:34:25.000Z</published>
-    <updated>2020-05-26T10:38:53.440Z</updated>
-    
-    <content type="html"><![CDATA[<p>给hexo博客加上看板娘和点击特效</p><p><img src="http://cdn.sijiu.ren//blog/20200426/MVz60rTa7H45.png?imageslim" alt></p><h3 id="添加看板娘"><a href="#添加看板娘" class="headerlink" title="添加看板娘"></a>添加看板娘</h3><p>进入站点根目录找到themes文件夹进入你当前所应用的主题文件夹</p><p>找到页脚文件footer(或者主题下的.ejs文件)添加下面三行代码</p><pre><code>&lt;script src=&quot;https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js&quot;&gt;&lt;/script&gt;&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css&quot;/&gt;&lt;script src=&quot;https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js&quot;&gt;&lt;/script&gt;</code></pre><h3 id="添加点击特效"><a href="#添加点击特效" class="headerlink" title="添加点击特效"></a>添加点击特效</h3><p>在footer中添加下面代码</p><pre><code>&lt;script type=&quot;text/javascript&quot;&gt;/* 鼠标特效 */var a_idx = 0;jQuery(document).ready(function($) {    $(&quot;body&quot;).click(function(e) {        var a = new Array(&quot;❤富强❤&quot;,&quot;❤民主❤&quot;,&quot;❤文明❤&quot;,&quot;❤和谐❤&quot;,&quot;❤自由❤&quot;,&quot;❤平等❤&quot;,&quot;❤公正❤&quot;,&quot;❤法治❤&quot;,&quot;❤爱国❤&quot;,&quot;❤敬业❤&quot;,&quot;❤诚信❤&quot;,&quot;❤友善❤&quot;);        var $i = $(&quot;&lt;span&gt;&lt;/span&gt;&quot;).text(a[a_idx]);        a_idx = (a_idx + 1) % a.length;        var x = e.pageX,        y = e.pageY;        $i.css({            &quot;z-index&quot;: 999999999999999999999999999999999999999999999999999999999999999999999,            &quot;top&quot;: y - 20,            &quot;left&quot;: x,            &quot;position&quot;: &quot;absolute&quot;,            &quot;font-weight&quot;: &quot;bold&quot;,            &quot;color&quot;: &quot;rgb(&quot;+~~(255*Math.random())+&quot;,&quot;+~~(255*Math.random())+&quot;,&quot;+~~(255*Math.random())+&quot;)&quot;        });        $(&quot;body&quot;).append($i);        $i.animate({            &quot;top&quot;: y - 180,            &quot;opacity&quot;: 0        },        1500,        function() {            $i.remove();        });    });});&lt;/script&gt;</code></pre><p>可以修改里面的代码替换自己想要出现的字</p><p>然后hexo g &amp; hexo d 就可以在你的博客中出现特效了</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;给hexo博客加上看板娘和点击特效&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://cdn.sijiu.ren//blog/20200426/MVz60rTa7H45.png?imageslim&quot; alt&gt;&lt;/p&gt;
-&lt;h3 id=&quot;添加看板娘&quot;&gt;&lt;a href=&quot;#添加看板
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>Hi,CTFer!u should be a fast man:)</title>
     <link href="http://yoursite.com/2020/04/23/i-CTFer-u-should-be-a-fast-man/"/>
     <id>http://yoursite.com/2020/04/23/i-CTFer-u-should-be-a-fast-man/</id>
