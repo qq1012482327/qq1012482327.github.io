@@ -289,7 +289,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-10-23 10:14:13'>2020-10-23 10:11</time>
+        创建时间:<time class="date" title='更新时间: 2020-10-23 10:17:26'>2020-10-23 10:11</time>
         
     </div>
     <div class="article-meta">
@@ -327,12 +327,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="SQL注入之显错注入"><a href="#SQL注入之显错注入" class="headerlink" title="SQL注入之显错注入"></a>SQL注入之显错注入</h1><h1 id="注入本质？"><a href="#注入本质？" class="headerlink" title="注入本质？"></a>注入本质？</h1><p>1、 SQL显错注入是最常见的注入。</p>
+        <h1 id="SQL注入之显错注入"><a href="#SQL注入之显错注入" class="headerlink" title="SQL注入之显错注入"></a>SQL注入之显错注入</h1><p><div class='inner-toc'><h2>目录</h2><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SQL注入之显错注入"><span class="toc-text">SQL注入之显错注入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注入本质？"><span class="toc-text">注入本质？</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#渗透测试常用函数。"><span class="toc-text">渗透测试常用函数。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#小知识点。"><span class="toc-text">小知识点。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL注入易错回答分析"><span class="toc-text">SQL注入易错回答分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#注入之联合查询的基本流程（Mysql数据库）。"><span class="toc-text">注入之联合查询的基本流程（Mysql数据库）。</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-显错判断注入点。"><span class="toc-text">1. 显错判断注入点。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-判断当前页面字段总数。"><span class="toc-text">2. 判断当前页面字段总数。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-判断显示位。"><span class="toc-text">3. 判断显示位。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-查看当前的数据库。"><span class="toc-text">4. 查看当前的数据库。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-查表名。"><span class="toc-text">5. 查表名。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-查列名。"><span class="toc-text">6. 查列名。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-查字段内容。"><span class="toc-text">7. 查字段内容。</span></a></li></ol></li></ol></li></ol></li></ol></div></p>
+<h1 id="注入本质？"><a href="#注入本质？" class="headerlink" title="注入本质？"></a>注入本质？</h1><p>1、 SQL显错注入是最常见的注入。</p>
 <p>2、 注入攻击的本质，是把用户输入的数据当做SQL语句执行。</p>
 <p>3、 这里有两个关键条件：</p>
 <p>第一个是用户能够控制输入。</p>
 <p>第二个是原本程序要执行的代码，拼接了用户输入的数据，然后进行执行。</p>
-<h2 id="渗透测试常用函数。"><a href="#渗透测试常用函数。" class="headerlink" title="渗透测试常用函数。"></a>渗透测试常用函数。</h2><p>1、 <strong>GROUP_CONCAT(col)**</strong>：**返回由属于一组的列值连接组合而成的结果。</p>
+<h2 id="渗透测试常用函数。"><a href="#渗透测试常用函数。" class="headerlink" title="渗透测试常用函数。"></a>渗透测试常用函数。</h2><p>1、 <strong>GROUP_CONCAT(col)**</strong>：**返</p>
+<p>回由属于一组的列值连接组合而成的结果。</p>
 <p>　　例如：id=9.9 union select 1,GROUP_CONCAT(table_name) from information_schema.tables where table_schema=database()</p>
 <p>　　可以把所有内容输出到同一页面，并且以逗号分隔(admin,dirs,news,xss)</p>
 <p>2、 <strong>ASCII(char)**</strong>：**盲注用，返回字符的ASCII码值。</p>
@@ -450,7 +452,7 @@
     
     <p><span class="copy-title">本文作者:</span><a  title="亖 玖">亖 玖</a></p>
     <p><span class="copy-title">发布时间:</span>2020-10-23, 10:11:16</p>
-    <p><span class="copy-title">最后更新:</span>2020-10-23, 10:14:13</p>
+    <p><span class="copy-title">最后更新:</span>2020-10-23, 10:17:26</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/10/23/sql%E6%B3%A8%E5%85%A5%E4%B9%8B%E6%98%BE%E9%94%99%E6%B3%A8%E5%85%A5/" title="sql注入之显错注入">http://yoursite.com/2020/10/23/sql%E6%B3%A8%E5%85%A5%E4%B9%8B%E6%98%BE%E9%94%99%E6%B3%A8%E5%85%A5/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
