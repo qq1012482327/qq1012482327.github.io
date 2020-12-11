@@ -297,7 +297,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-11-27 23:22:19'>2020-11-21 08:48</time>
+        创建时间:<time class="date" title='更新时间: 2020-12-11 11:04:14'>2020-11-21 08:48</time>
         
     </div>
     <div class="article-meta">
@@ -337,17 +337,21 @@
       
         <hr>
 <hr>
+<p>本地靶机里的题目笔记</p>
+<p>如果地址不可访问请联系我开启映射</p>
 <p><a href="http://qq1012482327.w3.luyouxia.net/" target="_blank" rel="noopener">传送门</a></p>
 <p>web1</p>
 <p><img src="http://cdn.sijiu.ren/blog/20201121/ujfKUYqSEWSe.png?imageslim" alt="mark"></p>
 <p>右击查看页面源代码发现flag</p>
 <p><img src="http://cdn.sijiu.ren/blog/20201121/vUzyR9WbOXzD.png?imageslim" alt="mark"></p>
+<hr>
 <p>web2</p>
 <p><img src="http://cdn.sijiu.ren/blog/20201121/gg78JNmpgff1.png?imageslim" alt="mark"></p>
 <p>打开发现index.php被重定向到index.html</p>
 <p>打开Burp抓包</p>
 <p><img src="http://cdn.sijiu.ren/blog/20201121/cRw84HOUQzbu.png?imageslim" alt="mark"></p>
 <p>得到flag</p>
+<hr>
 <p>web3</p>
 <p><img src="http://cdn.sijiu.ren/blog/20201121/iTauWecNG3P8.png?imageslim" alt="mark"></p>
 <p>只允许通过本地地址进行访问</p>
@@ -359,6 +363,7 @@
 <p><img src="http://cdn.sijiu.ren/blog/20201121/Immuo7M7dkXe.png?imageslim" alt="mark"></p>
 <p>得到flag</p>
 <p><img src="http://cdn.sijiu.ren/blog/20201121/Uu2S9VqJSFYQ.png?imageslim" alt="mark"></p>
+<hr>
 <p>web4</p>
 <p><img src="http://cdn.sijiu.ren/blog/20201121/6ICcXo5VWj0q.png?imageslim" alt="mark"></p>
 <p>御剑扫一下后台</p>
@@ -372,6 +377,7 @@
 <p><img src="http://cdn.sijiu.ren/blog/20201121/5yGCaj64ex43.png?imageslim" alt="mark"></p>
 <p>得到flag</p>
 <p><img src="http://cdn.sijiu.ren/blog/20201121/3k1OExQRCGh2.png?imageslim" alt="mark"></p>
+<hr>
 <p>web5</p>
 <p><img src="http://cdn.sijiu.ren/blog/20201127/qTd9VRgBB74f.png?imageslim" alt="mark"></p>
 <p>看一下源代码</p>
@@ -407,6 +413,7 @@
 <p>查看响应头</p>
 <p><img src="http://cdn.sijiu.ren/blog/20201127/CLFXJ9cDbNLs.png?imageslim" alt="mark"></p>
 <p>得到flag</p>
+<hr>
 <p>web6</p>
 <p><img src="http://cdn.sijiu.ren/blog/20201127/BfzORSg7LwPW.png?imageslim" alt="mark"></p>
 <p>代码审计</p>
@@ -417,10 +424,12 @@
 <p>240610708的md5值是0e开头的所以传参一个md5值0e开头的数值即可绕过</p>
 <p>0e开头的md5和原值：<br><strong>QNKCDZO</strong><br> 0e830400451993494058024219903391<br><strong>240610708</strong><br> 0e462097431906509019562988736854<br><strong>s878926199a</strong><br> 0e545993274517709034328855841020<br><strong>s155964671a</strong><br> 0e342768416822451524974117254469</p>
 <p><img src="http://cdn.sijiu.ren/blog/20201127/aVGwt3RTm11a.png?imageslim" alt="mark"></p>
+<hr>
 <p>web7</p>
 <p><img src="http://cdn.sijiu.ren/blog/20201127/98k2deuTj2Po.png?imageslim" alt="mark"></p>
 <p>PHP代码审计</p>
 <p>要求解密加密的代码</p>
+<p>解密脚本如下</p>
 <pre><code class="php">&lt;?php
 $s=&#39;=pJovuTsWOUrtIJZtcKZ2OJMzEJZyMTLdIas&#39;;
 function unencode($str){
@@ -445,6 +454,7 @@ unencode($s);
 <p><a href="https://www.dooccn.com/php5.5/" target="_blank" rel="noopener">在线运行代码网站</a></p>
 <p><img src="http://cdn.sijiu.ren/blog/20201127/pnszl5DMIo2C.png?imageslim" alt="mark"></p>
 <p>得到flag</p>
+<hr>
 <p>web8</p>
 <p><img src="http://cdn.sijiu.ren/blog/20201127/09MtIWt87qAM.png?imageslim" alt="mark"></p>
 <p>查看源代码</p>
@@ -472,6 +482,7 @@ unencode($s);
 <p>传入之前得到的账号密码</p>
 <p><img src="http://cdn.sijiu.ren/blog/20201127/YN50GI6k9jzJ.png?imageslim" alt="mark"></p>
 <p>得到flag</p>
+<hr>
 <p>web9</p>
 <p><img src="http://cdn.sijiu.ren/blog/20201127/YhUSMhrflCnn.png?imageslim" alt="mark"></p>
 <p>查找QQ然后访问空间要求输入生日，输入提示的生日</p>
@@ -483,6 +494,72 @@ unencode($s);
 <p><img src="http://cdn.sijiu.ren/blog/20201127/Y533Vp4vqEKv.png?imageslim" alt="mark"></p>
 <p>删掉readonly=””就可以输入了</p>
 <p><img src="http://cdn.sijiu.ren/blog/20201127/Rxnwze6Egltx.png?imageslim" alt="mark"></p>
+<p>得到flag</p>
+<hr>
+<p>web10</p>
+<p><img src="http://cdn.sijiu.ren/blog/20201129/WAcBveaat0N3.png?imageslim" alt="mark"></p>
+<p>查看页面源代码</p>
+<p><img src="http://cdn.sijiu.ren/blog/20201129/jtoV6ByuWhS5.png?imageslim" alt="mark"></p>
+<p>提示LFI本地文件包含</p>
+<p>在提交页面框中输入</p>
+<pre><code>php://filter/read=convert.base64-encode/resource=index.php</code></pre><p>利用LFI来查看base64加密的源码</p>
+<p><img src="http://cdn.sijiu.ren/blog/20201129/S4PbVy8lMSSq.png?imageslim" alt="mark">base64解码</p>
+<p><img src="http://cdn.sijiu.ren/blog/20201129/8VUpSOo6Bv2C.png?imageslim" alt="mark"></p>
+<p>得到flag</p>
+<hr>
+<p>web11</p>
+<p><img src="http://cdn.sijiu.ren/blog/20201129/QKQTGklVkb20.png?imageslim" alt="mark"></p>
+<p>查看信息收集时发现.swp文件泄露。直接访问</p>
+<p><img src="http://cdn.sijiu.ren/blog/20201211/HlwPPJLH16V7.png?imageslim" alt="mark"></p>
+<p>打开文件代码审计一下</p>
+<pre><code class="php">&lt;!--
+
+function clear($string){
+  //这是过滤函数哦~
+}
+
+
+$userInfo = @unserialize($_REQUEST[&#39;userInfo&#39;]);
+
+$query = &#39;SELECT * FROM users WHERE id = \&#39;&#39;.clear($userInfo[&#39;id&#39;]).&#39;\&#39; AND password = \&#39;&#39;.clear($userInfo[&#39;pass&#39;]).&#39;\&#39;;&#39;;
+
+$result = mysql_query($query);
+if(!$result || mysql_num_rows($result) &lt; 1){
+    die(&#39;Invalid password!&#39;);
+}
+
+$row = mysql_fetch_assoc($result);
+foreach($row as $key =&gt; $value){
+    $userInfo[$key] = $value;
+}
+
+$oldPass = @$_REQUEST[&#39;oldPass&#39;];
+$newPass = @$_REQUEST[&#39;newPass&#39;];
+if($oldPass == $userInfo[&#39;password&#39;]){
+    $userInfo[&#39;password&#39;] = $newPass;
+    $query = &#39;UPDATE users SET pass = \&#39;&#39;.clear($newPass).&#39;\&#39; WHERE id = \&#39;&#39;.clear($userInfo[&#39;id&#39;]).&#39;\&#39;;&#39;;
+    mysql_query($query);
+    echo &#39;Password Changed Success.&lt;br&gt;&#39;;
+}
+else{
+    echo &#39;Invalid old password entered.&#39;;
+}
+--&gt;</code></pre>
+<p>反序列化userInfo这个传参变量通过userInfo查询变量里的id和pass</p>
+<p>查看页面的cookies可以得到id和加密过的pass</p>
+<p><img src="http://cdn.sijiu.ren/blog/20201211/EOhVQq1V76D8.png?imageslim" alt="mark"></p>
+<p>将pass数值base64解密在md5解密得出未加密的密码20151231</p>
+<p><img src="http://cdn.sijiu.ren/blog/20201211/q7n9j6lTMeJY.png?imageslim" alt="mark"></p>
+<p>构造序列化userInfo</p>
+<p><img src="http://cdn.sijiu.ren/blog/20201211/8K1paUrH0wgb.png?imageslim" alt="mark"></p>
+<p>得到payload</p>
+<pre><code>a:2:{s:2:&quot;id&quot;;s:1:&quot;3&quot;;s:4:&quot;pass&quot;;s:8:&quot;20151231&quot;;}</code></pre><p><img src="http://cdn.sijiu.ren/blog/20201211/rNJ6jOxBPJ76.png?imageslim" alt="mark"></p>
+<p><img src="http://cdn.sijiu.ren/blog/20201211/W4TNdxDoC1qB.png?imageslim" alt="mark"></p>
+<p>传递oldPass和newPass使oldPass和pass相等</p>
+<p>构造oldPass=20151231&amp;newPass=123456</p>
+<p>最终payload</p>
+<pre><code class="php">a:2：{s:2:&quot;id&quot;;s:1:&quot;3&quot;;s:4:&quot;pass&quot;;s:8:&quot;20151231&quot;;}&amp;oldPass=20151231&amp;newpass=123456</code></pre>
+<p><img src="http://cdn.sijiu.ren/blog/20201211/zhSRO2HfwrVv.png?imageslim" alt="mark"></p>
 <p>得到flag</p>
 
       
@@ -501,7 +578,7 @@ unencode($s);
     
     <p><span class="copy-title">本文作者:</span><a  title="亖 玖">亖 玖</a></p>
     <p><span class="copy-title">发布时间:</span>2020-11-21, 08:48:43</p>
-    <p><span class="copy-title">最后更新:</span>2020-11-27, 23:22:19</p>
+    <p><span class="copy-title">最后更新:</span>2020-12-11, 11:04:14</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/11/21/CTFweb%E7%AC%94%E8%AE%B0/" title="CTFweb笔记">http://yoursite.com/2020/11/21/CTFweb%E7%AC%94%E8%AE%B0/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
