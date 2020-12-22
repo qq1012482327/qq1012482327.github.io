@@ -1191,14 +1191,14 @@ else{
  10   ┊ ┊ ┊ var todayHour = today.getHours();
   9   ┊ ┊ ┊ var todayMinute = today.getMinutes();
   8   ┊ ┊ ┊ var todaySecond = today.getSeconds();
-  7   ┊ ┊ ┊Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+  7   ┊ ┊ ┊/*Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
   6   ┊ ┊ ┊ year - 作为date对象的年份，为4位年份值
   5   ┊ ┊ ┊ month - 0-11之间的整数，做为date对象的月份
   4   ┊ ┊ ┊ day - 1-31之间的整数，做为date对象的天数
   3   ┊ ┊ ┊ hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
   2   ┊ ┊ ┊ minutes - 0-59之间的整数，做为date对象的分钟数
   1   ┊ ┊ ┊ seconds - 0-59之间的整数，做为date对象的秒数
-657   ┊ ┊ ┊ microseconds - 0-999之间的整数，做为date对象的毫秒数 
+657   ┊ ┊ ┊ microseconds - 0-999之间的整数，做为date对象的毫秒数 */
   1   ┊ ┊ ┊ var t1 = Date.UTC(2020, 4, 20, 15, 58, 51); //北京时间2020-12-05 00:00:00
   2   ┊ ┊ ┊ var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
   3   ┊ ┊ ┊ var diff = t2 - t1;
@@ -1211,7 +1211,7 @@ else{
  10   ┊ }
  11   ┊ siteTime();
  12 </script>
-~
+
 
 
 
