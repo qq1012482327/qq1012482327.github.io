@@ -297,7 +297,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2020-12-11 11:04:14'>2020-11-21 08:48</time>
+        创建时间:<time class="date" title='更新时间: 2020-12-16 17:40:39'>2020-11-21 08:48</time>
         
     </div>
     <div class="article-meta">
@@ -509,7 +509,7 @@ unencode($s);
 <hr>
 <p>web11</p>
 <p><img src="http://cdn.sijiu.ren/blog/20201129/QKQTGklVkb20.png?imageslim" alt="mark"></p>
-<p>查看信息收集时发现.swp文件泄露。直接访问</p>
+<p>信息收集时发现.swp文件泄露。直接访问</p>
 <p><img src="http://cdn.sijiu.ren/blog/20201211/HlwPPJLH16V7.png?imageslim" alt="mark"></p>
 <p>打开文件代码审计一下</p>
 <pre><code class="php">&lt;!--
@@ -561,6 +561,7 @@ else{
 <pre><code class="php">a:2：{s:2:&quot;id&quot;;s:1:&quot;3&quot;;s:4:&quot;pass&quot;;s:8:&quot;20151231&quot;;}&amp;oldPass=20151231&amp;newpass=123456</code></pre>
 <p><img src="http://cdn.sijiu.ren/blog/20201211/zhSRO2HfwrVv.png?imageslim" alt="mark"></p>
 <p>得到flag</p>
+<p>web12</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 1012482327@qq.com </span>
@@ -578,7 +579,7 @@ else{
     
     <p><span class="copy-title">本文作者:</span><a  title="亖 玖">亖 玖</a></p>
     <p><span class="copy-title">发布时间:</span>2020-11-21, 08:48:43</p>
-    <p><span class="copy-title">最后更新:</span>2020-12-11, 11:04:14</p>
+    <p><span class="copy-title">最后更新:</span>2020-12-16, 17:40:39</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2020/11/21/CTFweb%E7%AC%94%E8%AE%B0/" title="CTFweb笔记">http://yoursite.com/2020/11/21/CTFweb%E7%AC%94%E8%AE%B0/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
@@ -1172,6 +1173,44 @@ else{
     <!--给WordPress网站添加鼠标点击爆炸五颜六色特效-->
         <canvas class="fireworks" style="position:fixed;left:0;top:0;z-index:99999999;pointer-events:none;"></canvas>
     <script type="text/javascript" src="/js/djtx.js"></script>
+<!--添加建站时间代码 -->
+ 22 <script language=javascript>
+ 21   ┊ function siteTime() {
+ 20   ┊ ┊ ┊ window.setTimeout("siteTime()", 1000);
+ 19   ┊ ┊ ┊ var seconds = 1000;
+ 18   ┊ ┊ ┊ var minutes = seconds * 60;
+ 17   ┊ ┊ ┊ var hours = minutes * 60;
+ 16   ┊ ┊ ┊ var days = hours * 24;
+ 15   ┊ ┊ ┊ var years = days * 365;
+ 14   ┊ ┊ ┊ var today = new Date();
+ 13   ┊ ┊ ┊ var todayYear = today.getFullYear();
+ 12   ┊ ┊ ┊ var todayMonth = today.getMonth() + 1;
+ 11   ┊ ┊ ┊ var todayDate = today.getDate();
+ 10   ┊ ┊ ┊ var todayHour = today.getHours();
+  9   ┊ ┊ ┊ var todayMinute = today.getMinutes();
+  8   ┊ ┊ ┊ var todaySecond = today.getSeconds();
+  7   ┊ ┊ ┊ /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+  6   ┊ ┊ ┊ year - 作为date对象的年份，为4位年份值
+  5   ┊ ┊ ┊ month - 0-11之间的整数，做为date对象的月份
+  4   ┊ ┊ ┊ day - 1-31之间的整数，做为date对象的天数
+  3   ┊ ┊ ┊ hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+  2   ┊ ┊ ┊ minutes - 0-59之间的整数，做为date对象的分钟数
+  1   ┊ ┊ ┊ seconds - 0-59之间的整数，做为date对象的秒数
+657   ┊ ┊ ┊ microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+  1   ┊ ┊ ┊ var t1 = Date.UTC(2020, 12, 05, 00, 00, 00); //北京时间2020-12-05 00:00:00
+  2   ┊ ┊ ┊ var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+  3   ┊ ┊ ┊ var diff = t2 - t1;
+  4   ┊ ┊ ┊ var diffYears = Math.floor(diff / years);
+  5   ┊ ┊ ┊ var diffDays = Math.floor((diff / days) - diffYears * 365);
+  6   ┊ ┊ ┊ var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+  7   ┊ ┊ ┊ var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+  8   ┊ ┊ ┊ var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes *
+  9   ┊ ┊ ┊ document.getElementById("sitetime").innerHTML = "本站已运行: " +diffYears+" 年 "+diffDays + " 天 " + diffHou
+ 10   ┊ }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+ 11   ┊ siteTime();
+ 12 </script>
+~
+
 
 </html>
 

@@ -999,6 +999,44 @@ Decode.exe -X -P pass(密码) svega_stego.mp3(要拷贝到目录下) //解码</c
     <!--给WordPress网站添加鼠标点击爆炸五颜六色特效-->
         <canvas class="fireworks" style="position:fixed;left:0;top:0;z-index:99999999;pointer-events:none;"></canvas>
     <script type="text/javascript" src="/js/djtx.js"></script>
+<!--添加建站时间代码 -->
+ 22 <script language=javascript>
+ 21   ┊ function siteTime() {
+ 20   ┊ ┊ ┊ window.setTimeout("siteTime()", 1000);
+ 19   ┊ ┊ ┊ var seconds = 1000;
+ 18   ┊ ┊ ┊ var minutes = seconds * 60;
+ 17   ┊ ┊ ┊ var hours = minutes * 60;
+ 16   ┊ ┊ ┊ var days = hours * 24;
+ 15   ┊ ┊ ┊ var years = days * 365;
+ 14   ┊ ┊ ┊ var today = new Date();
+ 13   ┊ ┊ ┊ var todayYear = today.getFullYear();
+ 12   ┊ ┊ ┊ var todayMonth = today.getMonth() + 1;
+ 11   ┊ ┊ ┊ var todayDate = today.getDate();
+ 10   ┊ ┊ ┊ var todayHour = today.getHours();
+  9   ┊ ┊ ┊ var todayMinute = today.getMinutes();
+  8   ┊ ┊ ┊ var todaySecond = today.getSeconds();
+  7   ┊ ┊ ┊ /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+  6   ┊ ┊ ┊ year - 作为date对象的年份，为4位年份值
+  5   ┊ ┊ ┊ month - 0-11之间的整数，做为date对象的月份
+  4   ┊ ┊ ┊ day - 1-31之间的整数，做为date对象的天数
+  3   ┊ ┊ ┊ hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+  2   ┊ ┊ ┊ minutes - 0-59之间的整数，做为date对象的分钟数
+  1   ┊ ┊ ┊ seconds - 0-59之间的整数，做为date对象的秒数
+657   ┊ ┊ ┊ microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+  1   ┊ ┊ ┊ var t1 = Date.UTC(2020, 12, 05, 00, 00, 00); //北京时间2020-12-05 00:00:00
+  2   ┊ ┊ ┊ var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+  3   ┊ ┊ ┊ var diff = t2 - t1;
+  4   ┊ ┊ ┊ var diffYears = Math.floor(diff / years);
+  5   ┊ ┊ ┊ var diffDays = Math.floor((diff / days) - diffYears * 365);
+  6   ┊ ┊ ┊ var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+  7   ┊ ┊ ┊ var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) / minutes);
+  8   ┊ ┊ ┊ var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours - diffMinutes *
+  9   ┊ ┊ ┊ document.getElementById("sitetime").innerHTML = "本站已运行: " +diffYears+" 年 "+diffDays + " 天 " + diffHou
+ 10   ┊ }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+ 11   ┊ siteTime();
+ 12 </script>
+~
+
 
 </html>
 
