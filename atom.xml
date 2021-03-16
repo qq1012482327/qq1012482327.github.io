@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-12-16T09:40:39.907Z</updated>
+  <updated>2021-03-16T07:03:26.356Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Mac泛洪攻击与监听</title>
+    <link href="http://yoursite.com/2021/03/16/Mac%E6%B3%9B%E6%B4%AA%E6%94%BB%E5%87%BB%E4%B8%8E%E7%9B%91%E5%90%AC/"/>
+    <id>http://yoursite.com/2021/03/16/Mac%E6%B3%9B%E6%B4%AA%E6%94%BB%E5%87%BB%E4%B8%8E%E7%9B%91%E5%90%AC/</id>
+    <published>2021-03-16T07:02:50.950Z</published>
+    <updated>2021-03-16T07:03:26.356Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="本文记录了用虚拟机如何在局域网内对交换机进行Mac泛洪攻击，对FTP通信进行流量监听并获取帐户密码的攻击目的。"><a href="#本文记录了用虚拟机如何在局域网内对交换机进行Mac泛洪攻击，对FTP通信进行流量监听并获取帐户密码的攻击目的。" class="headerlink" title="本文记录了用虚拟机如何在局域网内对交换机进行Mac泛洪攻击，对FTP通信进行流量监听并获取帐户密码的攻击目的。"></a>本文记录了用虚拟机如何在局域网内对交换机进行Mac泛洪攻击，对FTP通信进行流量监听并获取帐户密码的攻击目的。</h5><h3 id="演示环境"><a href="#演示环境" class="headerlink" title="演示环境"></a>演示环境</h3><table><thead><tr><th>主机</th><th>角色</th><th>IP地址</th></tr></thead><tbody><tr><td>BT5R3 虚拟机</td><td>攻击机</td><td>192.168.198.137</td></tr><tr><td>Centos 7 虚拟机</td><td>连接FTP服务器</td><td>192.168.198.240</td></tr><tr><td>WindowsXP-sp2 虚拟机</td><td>FTP服务器</td><td>192.168.198.134</td></tr></tbody></table><p>三台虚拟机安装在VMware中，网络连接使用NAT模式</p><h3 id="Mac泛洪攻击原理"><a href="#Mac泛洪攻击原理" class="headerlink" title="Mac泛洪攻击原理"></a>Mac泛洪攻击原理</h3><p>泛洪攻击的目标就是想获取主机之间的通信数据。要想达到这个目的，就需要强迫交换机进行数据广播，那就要实现 Mac 表中没有目标主机 的 Mac 和端口绑定。泛洪攻击的实现方法就是通过<strong>伪造大量的未知 Mac 地址进行通信</strong>，交换机进行不断的学习，很快 Mac 表就会被充满，这样正常的主机的 Mac 地址在经过老化之后，就无法再添加到 Mac 地址表中，导致之后交换机的数据都变成了广播。</p><h3 id="攻击过程"><a href="#攻击过程" class="headerlink" title="攻击过程"></a>攻击过程</h3><h5 id="1-在windowsxp-sp2搭建FTP服务器"><a href="#1-在windowsxp-sp2搭建FTP服务器" class="headerlink" title="1.在windowsxp-sp2搭建FTP服务器"></a>1.在windowsxp-sp2搭建FTP服务器</h5><p><img src="https://cdn.sijiu.ren/blog/20210316/fMBYl05c2RkT.png?imageslim" alt="mark"></p><h5 id="2-在Centos-7访问FTP服务器"><a href="#2-在Centos-7访问FTP服务器" class="headerlink" title="2.在Centos 7访问FTP服务器"></a>2.在Centos 7访问FTP服务器</h5><p><img src="https://cdn.sijiu.ren/blog/20210316/Nog2w3xNccRI.png?imageslim" alt="mark"></p><h5 id="3-在攻击机上执行命令macof，通过eth2向交换机发送大量伪造的Mac数据包"><a href="#3-在攻击机上执行命令macof，通过eth2向交换机发送大量伪造的Mac数据包" class="headerlink" title="3.在攻击机上执行命令macof，通过eth2向交换机发送大量伪造的Mac数据包"></a>3.在攻击机上执行命令macof，通过eth2向交换机发送大量伪造的Mac数据包</h5><p><img src="https://cdn.sijiu.ren/blog/20210316/FEfS9XmKJ8nV.png?imageslim" alt="mark"></p><h5 id="4-同时打开wireshark监听eth2网卡的FTP通信"><a href="#4-同时打开wireshark监听eth2网卡的FTP通信" class="headerlink" title="4.同时打开wireshark监听eth2网卡的FTP通信"></a>4.同时打开wireshark监听eth2网卡的FTP通信</h5><h6 id="centos-7-重新访问FTP服务器然后返回攻击机可以发现wireshark记录了账号和密码"><a href="#centos-7-重新访问FTP服务器然后返回攻击机可以发现wireshark记录了账号和密码" class="headerlink" title="centos 7 重新访问FTP服务器然后返回攻击机可以发现wireshark记录了账号和密码"></a>centos 7 重新访问FTP服务器然后返回攻击机可以发现wireshark记录了账号和密码</h6><p><img src="https://cdn.sijiu.ren/blog/20210316/aGTSvi7jJIfE.png?imageslim" alt="mark"></p><p>本次实验记录结束</p><p><strong>防御 Mac 泛洪攻击的措施：</strong></p><ol><li>限定交换机接入的端口的mac数量，一般高级的交换机都有这项功能。例如：设置交换机某端口最多学习 8个 Mac 地址，如果超过了 8个 Mac 地址就停止学习，自动丢弃后来的 Mac 地址。</li><li>从主机管理员的日常运维角度来说，主机应禁用 FTP、Telnet 等明文传输数据的不安全通讯协议，可使用 SFTP、SSH 协议替代。</li><li>从网站服务器开发者的角度来说，应对用户的敏感信息进行加密后再进行传输，最好直接使用HTTPS协议，而对于使用HTTP协议通信的站点，至少对用户的账号密码等敏感信息在前端做下加密后再传输。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h5 id=&quot;本文记录了用虚拟机如何在局域网内对交换机进行Mac泛洪攻击，对FTP通信进行流量监听并获取帐户密码的攻击目的。&quot;&gt;&lt;a href=&quot;#本文记录了用虚拟机如何在局域网内对交换机进行Mac泛洪攻击，对FTP通信进行流量监听并获取帐户密码的攻击目的。&quot; class=&quot;h
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>CTFweb笔记</title>
