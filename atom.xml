@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2021-10-13T14:14:28.122Z</updated>
+  <updated>2021-11-27T09:33:47.817Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CTF练习题目</title>
+    <link href="http://yoursite.com/2021/11/27/CTF%E7%BB%83%E4%B9%A0%E9%A2%98%E7%9B%AE/"/>
+    <id>http://yoursite.com/2021/11/27/CTF%E7%BB%83%E4%B9%A0%E9%A2%98%E7%9B%AE/</id>
+    <published>2021-11-27T09:11:57.924Z</published>
+    <updated>2021-11-27T09:33:47.817Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="misc"><a href="#misc" class="headerlink" title="misc"></a>misc</h2><h5 id="某网站被黑客攻击，请找到黑客连接数据库的密码。"><a href="#某网站被黑客攻击，请找到黑客连接数据库的密码。" class="headerlink" title="某网站被黑客攻击，请找到黑客连接数据库的密码。"></a>某网站被黑客攻击，请找到黑客连接数据库的密码。</h5><p>题目描述 某网站被黑客攻击，请找到黑客连接数据库的密码。</p><p>某网站被攻击说明流量走的应该是http协议的 </p><p>用Wireshark打开流量包过滤http </p><p>黑客连接数据库需要提交密码</p><p>查找一下http包含POST提交的请求</p><p>输入 http contains “POST” 筛选</p><p><img src="https://cdn.sijiu.ren/blog/20211127/YJs2rwqoB8KN.png?imageslim" alt></p><p>找到登录的账号密码</p><h4 id="流量分析二"><a href="#流量分析二" class="headerlink" title="流量分析二"></a>流量分析二</h4><p>打开流量包审计</p><p>筛选一下http协议看一下</p><p><img src="https://cdn.sijiu.ren/blog/20211127/lFY4FISc0Tez.png?imageslim" alt></p><p>看这请求应该是sql注入盲注请求</p><p>使用http contains “substring” 筛选全部的sql请求</p><p><img src="https://cdn.sijiu.ren/blog/20211127/ocrdqDDpJtle.png?imageslim" alt></p><p>ASCII码遍历注入到正确的值他就会继续遍历下一个值</p><p>可以通过计算38个值改变的ASCII码的值得出flag</p><p>也可以使用下面的脚本跑出flag</p><pre><code class="python">import rewith open(&quot;流量分析二.pcapng&quot;, &quot;rb&quot;) as f:    contents = f.read()    res = re.compile(r&#39;0,1\),(\d+),1\)\)=(\d+)%23&#39;).findall(str(contents))    dic = {}    for a, b in res:        if a in dic:            if int(b) &gt; dic[a]:                dic[a] = int(b)        else:            dic[a] = int(b)    flag = &quot;&quot;    for i in range(1,39):        flag += chr(dic[str(i)])    print(flag)</code></pre><p>flag{c2bbf9cecdaf656cf524d014c5bf046c}</p><h2 id="crypto"><a href="#crypto" class="headerlink" title="crypto"></a>crypto</h2><h4 id="签到题"><a href="#签到题" class="headerlink" title="签到题"></a>签到题</h4><pre><code>编码1：。。。&amp;#102;&amp;#108;&amp;#97;&amp;#103;&amp;#123;&amp;#98;&amp;#98;&amp;#49;&amp;#54;&amp;#98;&amp;#102;&amp;#54;&amp;#97;编码2：泡泡牙牙学语xetof-momok-fisyk-ditof-lamef-cosif-hyvax编码3：JJ$={___:++$,$$$$:(![]+&quot;&quot;)[$],__$:++$,$_$_:(![]+&quot;&quot;)[$],_$_:++$,$_$$:({}+&quot;&quot;)[$],$$_$:($[$]+&quot;&quot;)[$],_$$:++$,$$$_:(!&quot;&quot;+&quot;&quot;)[$],$__:++$,$_$:++$,$$__:({}+&quot;&quot;)[$],$$_:++$,$$$:++$,$___:++$,$__$:++$};$.$_=($.$_=$+&quot;&quot;)[$.$_$]+($._$=$.$_[$.__$])+($.$$=($.$+&quot;&quot;)[$.__$])+((!$)+&quot;&quot;)[$._$$]+($.__=$.$_[$.$$_])+($.$=(!&quot;&quot;+&quot;&quot;)[$.__$])+($._=(!&quot;&quot;+&quot;&quot;)[$._$_])+$.$_[$.$_$]+$.__+$._$+$.$;$.$$=$.$+(!&quot;&quot;+&quot;&quot;)[$._$$]+$.__+$._+$.$+$.$$;$.$=($.___)[$.$_][$.$_];$.$($.$($.$$+&quot;\&quot;&quot;+$.$_$+$.$$$+$._$_+$._$$+$._$_+$.$$__+$.$__$+$.$$$_+$.$$$$+$.$__$+$.$$__+&quot;}&quot;+&quot;\&quot;&quot;)())();</code></pre><p>编码1是unicode编码</p><p>编码2是BubbleBabble编码</p><p>编码3是JJencode编码</p><p>flag{bb16bf678ac2b67a135957232c9ef9c}</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;misc&quot;&gt;&lt;a href=&quot;#misc&quot; class=&quot;headerlink&quot; title=&quot;misc&quot;&gt;&lt;/a&gt;misc&lt;/h2&gt;&lt;h5 id=&quot;某网站被黑客攻击，请找到黑客连接数据库的密码。&quot;&gt;&lt;a href=&quot;#某网站被黑客攻击，请找到黑客连接数据库的密码
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>学习书籍链接</title>
